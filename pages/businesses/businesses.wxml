@@ -1,0 +1,99 @@
+<!--pages/businesses/businesses.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view class="shopNum">
+      <text class="title">商户数量</text>
+      <text class="number">8</text>
+    </view>
+    <view class="shopSearch">
+      <view class="searchContent">
+        <input class="weui-input" auto-focus placeholder="请输入商户名称"/>
+        <view class="searchIcon">
+          <image src="{{searchIcon}}"></image>  
+        </view> 
+      </view>
+    </view>
+    <navigator url="../businessesDetail/businessesDetail" hover-class="other-navigator-hover">
+    <view class="shopList">
+      <view class="listHead">
+        <text class="firstText ">S0001</text>
+        <text class="lastText">2019/12/12</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">商户名称</text>
+        <text class="lastListText fontWeight">诸葛烤鱼</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">服务费率</text>
+        <text class="lastListText ">10(%)</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">企业类型</text>
+        <text class="lastListText ">星支付</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">联系人</text>
+        <text class="lastListText ">王旭</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">联系电话</text>
+        <text class="lastListText ">13800138000</text>
+      </view>    
+    </view>
+    </navigator>
+    <view class="shopList">
+      <view class="listHead">
+        <text class="firstText ">S0001</text>
+        <text class="lastText">2019/12/12</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">商户名称</text>
+        <text class="lastListText fontWeight">诸葛烤鱼</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">服务费率</text>
+        <text class="lastListText ">10(%)</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">企业类型</text>
+        <text class="lastListText ">星支付</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">联系人</text>
+        <text class="lastListText ">王旭</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">联系电话</text>
+        <text class="lastListText ">13800138000</text>
+      </view>    
+    </view>
+    <view class="shopList">
+      <view class="listHead">
+        <text class="firstText ">S0001</text>
+        <text class="lastText">2019/12/12</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">商户名称</text>
+        <text class="lastListText fontWeight">诸葛烤鱼</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">服务费率</text>
+        <text class="lastListText ">10(%)</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">企业类型</text>
+        <text class="lastListText ">星支付</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">联系人</text>
+        <text class="lastListText ">王旭</text>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">联系电话</text>
+        <text class="lastListText ">13800138000</text>
+      </view>    
+    </view>
+  </view>
+</view>

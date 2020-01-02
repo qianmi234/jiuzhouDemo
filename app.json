@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/deal/deal",
+    "pages/businessesDetail/businessesDetail",
+    "pages/businesses/businesses",
+    "pages/logs/logs"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "navigationStyle":"custom"
+  },
+  "disableScroll": true,
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

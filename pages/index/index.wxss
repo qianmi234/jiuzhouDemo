@@ -1,0 +1,170 @@
+/**index.wxss**/
+.userinfo {
+  position: absolute;
+  top: 180rpx;
+  left:30rpx;
+  display: block;
+  z-index: 99999999;
+  width: 690rpx;
+}
+
+.userinfo-avatar {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  float: left;
+}
+
+.userinfo-nickname {
+  position: relative;
+  color: #fff;
+  display: block;
+  font-size: 32rpx;
+  top: 8rpx;
+  left: 20rpx;
+}
+.userinfo-company{
+  position: relative;
+  color: #fff;
+  font-size: 32rpx;
+  top: 18rpx;
+  display: block;
+  left: 20rpx;
+}
+.usermotto {
+  margin-top: 350rpx;
+  width: 690rpx;
+  height: 386rpx;
+  background-color: #fff;
+  border-radius: 2%;
+  z-index: 2;
+}
+.bgUrl{
+  position: fixed;
+  width: 100%;
+  height: 450rpx;
+  background-position: 100% 100%；
+}
+.index_title{
+  position: absolute;
+  color: white;
+  font-size: 32rpx;
+  top: 60rpx;
+  width: 100%;
+  text-align: center;
+}
+.userlist{
+  position: absolute;
+  top: 766rpx;
+  width: 690rpx;
+  height: 523rpx;
+  background-color: #fff;
+  border-radius: 2%;
+  z-index: 2;
+}
+.top_title{
+  border-bottom:1rpx solid #f2f2f2;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center
+}
+.myAssets{
+  float: left;
+  margin-left: 30rpx;
+  font-size: 32rpx;
+  color:#333;
+}
+.extraction{
+  float: right;
+  margin-right: 30rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+.wallet{
+  width: 40rpx;
+  height: 44rpx;
+  position: relative;
+  top: 6rpx;
+}
+.totalAssets{
+  border-bottom:1rpx solid #f2f2f2;
+}
+.titleAssets{
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+.numAssets{
+  font-size: 46rpx;
+  color: #333;
+  margin:10rpx 0 15rpx 30rpx;
+}
+.statistics{
+  display: flex;
+  margin-top: 30rpx;
+}
+.statistics .left{
+  border-right: 1px solid #f2f2f2;
+  width: 50%;
+  margin-left: 30rpx;
+}
+.statistics .right{
+  width: 50%;
+  text-align: right;
+  margin-right: 30rpx;
+}
+.leftTitile{
+  color: #999;
+  font-size: 28rpx;
+}
+.leftNum{
+  color: #ec6659;
+  font-size: 28rpx;
+  margin-top: 15rpx;
+}
+.rightNum{
+  color: #379b4a;
+  font-size: 28rpx;
+  margin-top:15rpx;
+}
+.listContent{
+  display: flex;
+  height: 130rpx;
+  justify-content: flex-start;
+  align-items: center;
+}
+.listIcon{
+  margin-left: 30rpx;
+  width: 88rpx;
+  height: 88rpx;
+}
+.arrow{
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  position: absolute;
+  right: 30rpx;
+  transform: rotate(45deg);
+  margin-top:50rpx;
+  display: inline-block;
+}
+.listTitle{
+  color: #333;
+  font-size: 28rpx;
+  width: 555rpx;
+  border-bottom: 1px solid #f2f2f2;
+  margin-left: 20rpx;
+  height: 130rpx;
+  line-height: 130rpx;
+  position: relative;
+}
+.lastTitle{
+  color: #333;
+  font-size: 28rpx;
+  width: 552rpx;
+  margin-left: 20rpx;
+  height: 130rpx;
+  line-height: 130rpx;
+}

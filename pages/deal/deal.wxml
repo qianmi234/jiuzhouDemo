@@ -1,0 +1,102 @@
+<!--pages/deal/deal.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view class="dealInfo">
+      <view class="dealContent">
+        <image class="imageInfo" src="{{personIcon}}"></image>
+        <view class="shopName">诸葛烤鱼</view>
+        <view class="shopTel">
+          <text>孙立群</text>
+          <text class="mrLeft20">130 0000 1111</text>
+          <image class="telImage" src="{{telIcon}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="dealDateList">
+      <view class="dealDate">
+        <text bindtap="tabChange" data-id="1" class="{{tabIndex == 1?'active':''}}">日交易汇总</text>
+        <text bindtap="tabChange" data-id="2" class="{{tabIndex == 2?'active':''}}">月交易汇总</text>
+      </view>
+    </view>
+    <view class="dateInfo" wx:if="{{tabIndex == 1}}">
+      <view class="companyHead">
+        <view class="dateSelect">
+          <text>按日选择</text>
+          <view class="dateStart">
+            <picker mode="date" value="{{dateStart}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindStartDateChange">
+              <view class="picker">
+                {{dateStart}}
+              </view>
+            </picker>
+          </view>
+          <text>-</text>
+          <view class="dateEnd">
+            <picker mode="date" value="{{dateEnd}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindEndDateChange">
+              <view class="picker">
+                {{dateEnd}}
+              </view>
+            </picker>
+          </view>
+          <text class="dateSearch">查询</text>
+        </view>
+      </view>
+      <view class="dateContent">
+        <view class="dateHead">
+          <text class="firstListText">交易时间</text>
+          <text class="lastListText">交易额</text>
+        </view>
+        <view class="dateList">
+          <text class="firstDate">2019/12/01</text>
+          <text class="lastDate">3444.00</text>
+        </view>
+        <view class="dateList">
+          <text class="firstDate">2019/12/01</text>
+          <text class="lastDate">3444.00</text>
+        </view>
+        <view class="dateList">
+          <text class="firstDate">2019/12/01</text>
+          <text class="lastDate">3444.00</text>
+        </view>
+        <view class="dateList">
+          <text class="firstDate">2019/12/01</text>
+          <text class="lastDate">3444.00</text>
+        </view>
+      </view>
+    </view>
+    <view class="monthInfo" wx:if="{{tabIndex == 2}}">
+      <view class="companyHead">
+        <view class="dateSelect">
+          <text>按月选择</text>
+          <view class="monthStart">
+            <picker mode="date" value="{{monthStart}}" start="{{monthStart}}" end="{{monthEnd}}" bindchange="bindStartMonthChange" fields="month">
+              <view class="picker">
+                {{monthStart}}
+              </view>
+            </picker>
+          </view>
+           <text class="dateSearch">查询</text>
+        </view>
+      </view>
+      <view class="dateContent">
+        <view class="dateHead">
+          <text class="firstListText">交易时间</text>
+          <text class="lastListText">交易额</text>
+        </view>
+        <view class="dateList">
+          <text class="firstDate">2019/12/01</text>
+          <text class="lastDate">3444.00</text>
+        </view>
+        <view class="dateList">
+          <text class="firstDate">2019/12/01</text>
+          <text class="lastDate">3444.00</text>
+        </view>
+        <view class="dateList">
+          <text class="firstDate">2019/12/01</text>
+          <text class="lastDate">3444.00</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
