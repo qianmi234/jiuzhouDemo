@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/income/income",
     "pages/deal/deal",
     "pages/businessesDetail/businessesDetail",
     "pages/businesses/businesses",
     "pages/logs/logs"
-   
   ],
   "window": {
     "backgroundTextStyle": "light",

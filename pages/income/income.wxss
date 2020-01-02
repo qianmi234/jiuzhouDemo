@@ -1,0 +1,45 @@
+/* pages/income/income.wxss */
+.shopContainer{
+  position: absolute;
+  background-color: #f2f2f2;
+  width: 100%;
+  min-height: 100%;
+}
+.monthIncome{
+  height: 180rpx;
+  text-align: center;
+  margin-top: 50rpx;
+}
+.monthIncome .monthTitle{
+  color: #999;
+  font-size: 30rpx;
+}
+.monthIncome .monthPrice{
+  color:#eb6247;
+  font-size: 52rpx;
+  margin-top: 30rpx;
+  font-weight: 700;
+}
+.incomeContent{
+  margin-top: 100rpx;
+}
+.incomeContent .incomeList{
+  text-align: center;
+  width: 50%;
+  display: inline-block;
+}
+.incomeContent image{
+  width: 70rpx;
+  height: 50rpx;
+}
+.incomeList .listTitle{
+  color: #999;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+.incomeList .listPrice{
+  color: #333;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  font-weight: 600;
+}

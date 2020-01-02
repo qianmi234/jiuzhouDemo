@@ -51,13 +51,15 @@
         </view>
       </view>
     </navigator>
-    <view class="listContent">
-      <image class="listIcon" src="{{shouyiIcon}}"></image>
-      <view class="listTitle">
-        <text>收益查询</text>
-        <view class='arrow'></view>
+    <navigator url="../income/income" hover-class="other-navigator-hover">
+      <view class="listContent">
+        <image class="listIcon" src="{{shouyiIcon}}"></image>
+        <view class="listTitle">
+          <text>收益查询</text>
+          <view class='arrow'></view>
+        </view>
       </view>
-    </view>
+    </navigator>
     <view class="listContent">
       <image class="listIcon" src="{{xiugaiIcon}}"></image>
       <view class="lastTitle">
