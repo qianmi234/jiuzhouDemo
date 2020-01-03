@@ -1,7 +1,7 @@
 /* pages/income/income.wxss */
 .shopContainer{
   position: absolute;
-  background-color: #f2f2f2;
+  background-color: #fff;
   width: 100%;
   min-height: 100%;
 }

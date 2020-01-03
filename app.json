@@ -1,6 +1,9 @@
 {
   "pages": [
+    "pages/withdrawals/withdrawals",
     "pages/index/index",
+    
+    "pages/withdrawalsList/withdrawalsList",
     "pages/income/income",
     "pages/deal/deal",
     "pages/businessesDetail/businessesDetail",

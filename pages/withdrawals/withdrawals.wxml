@@ -1,0 +1,93 @@
+<!--pages/withdrawals/withdrawals.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    
+    <view class="shopNum">
+        <view class="title">往期提现</view> 
+        <navigator url="/pages/withdrawalsList/withdrawalsList" hover-class="other-navigator-hover">  
+        <view class="chance">提现记录</view> 
+        </navigator>
+    </view>
+    
+    <view class="height20"></view>
+    <view class="shopList">
+      <view class="listHead">
+        <view class="firstText ">到账银行</view>
+        <view class="lastText">
+          <image class="bankImg" src="{{zhaoshangIcon}}"></image>
+        招商银行(5468)
+        </view>
+        <view bindtap="clickme" class='arrow'></view>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">总资产</text>
+        <text class="lastListText">10,100,100,000,00</text>
+      </view>
+      <view class="listContent">
+        <view class="firstListText">提现金额</view>
+        <input class="prcieInput" type="number" value="45,000,00.00" placeholder="请输入提现金额" />
+        <view class="lastListButton ">全部</view>
+      </view>
+      <view class="listContent">
+        <view class="firstListText">手机号码</view>
+        <input class="prcieInput" type="number" placeholder="请输入您的手机号码" />
+      </view>
+      <view class="listTips">
+        * 为了提现安全，请认真填写您的手机号码
+      </view>
+      <navigator url="../deal/deal" hover-class="other-navigator-hover" open-type='switchTab'>
+      <view class="buttonContent">
+        <view class="exportButton">确认提现</view>
+      </view>
+      </navigator>
+      <view class="listTips">
+        * 温馨提示
+      </view>
+      <view class="tipsTitle">1.消费当天第七个工作日才能提现</view>
+      <view class="tipsTitle">2.最低提现金额10元</view>
+    </view>
+  </view>
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view class="maskHead">
+      <view class="headTitle">选择银行卡</view>
+      <view bindtap="hideModal" class="headCancle">取消</view>
+    </view>
+    <view class="crdList">
+      <view class="cardListLeft">
+        <image class="cardImage" src="{{zhaoshangIcon}}"></image>
+        中国工商银行(2403)
+      </view>
+      <view>
+        <image class="onImage displayNone" src="{{checkIcon}}"></image>
+      </view>
+    </view>
+    <view class="crdList">
+      <view class="cardListLeft">
+        <image class="cardImage" src="{{zhaoshangIcon}}"></image>
+        中国工商银行(2403)
+      </view>
+      <view>
+        <image class="onImage" src="{{checkIcon}}"></image>
+      </view>
+    </view>
+    <view class="crdList">
+      <view class="cardListLeft">
+        <image class="cardImage" src="{{zhaoshangIcon}}"></image>
+        中国工商银行(2403)
+      </view>
+      <view>
+        <image class="onImage displayNone" src="{{checkIcon}}"></image>
+      </view>
+    </view>
+    <view class="addCard">
+      <view class="cardLeft">
+        <image src="{{zhaoshangIcon}}"></image>
+        添加银行卡
+      </view>
+      <view class="arrowRight"></view>
+    </view>
+  </view>
+</view>

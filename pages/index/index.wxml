@@ -12,10 +12,12 @@
   <view class="usermotto">
     <view class="top_title">
       <view class="myAssets">我的资产</view>
-      <view class="extraction">
-        提现
-        <image class="wallet" src="{{tixianIcon}}"></image>
-      </view>
+      <navigator url="../withdrawals/withdrawals" hover-class="other-navigator-hover">
+        <view class="extraction">
+          提现
+          <image class="wallet" src="{{tixianIcon}}"></image>
+        </view>
+      </navigator>
     </view>
     <view class="totalAssets">
       <view class="titleAssets">总资产(元)</view>

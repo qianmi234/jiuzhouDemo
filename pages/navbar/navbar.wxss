@@ -66,5 +66,6 @@
 }
 .zIndex{
   z-index: 9;
-  width: 150rpx;
+  width: 300rpx;
+  display: block;
 }
