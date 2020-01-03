@@ -60,9 +60,10 @@
   padding: 10rpx;
 }
 .nav-capsule {
-  width: 36rpx;
+  width: 136rpx;
   height: 40rpx;
   margin-top: 3rpx;
+  z-index: 99;
 }
 .zIndex{
   z-index: 9;

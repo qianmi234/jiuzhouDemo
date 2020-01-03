@@ -1,14 +1,15 @@
 {
   "pages": [
-    "pages/withdrawals/withdrawals",
     "pages/index/index",
-    
+    "pages/addBank/addBank",
+    "pages/withdrawals/withdrawals",
     "pages/withdrawalsList/withdrawalsList",
     "pages/income/income",
     "pages/deal/deal",
     "pages/businessesDetail/businessesDetail",
     "pages/businesses/businesses",
     "pages/logs/logs"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

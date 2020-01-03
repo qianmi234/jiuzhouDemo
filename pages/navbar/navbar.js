@@ -32,9 +32,7 @@ Component({
     // 返回上一页面
     _navback() {
       console.log("0----------111>>")
-      wx.navigateBack({
-        delta: 1
-      });
+      wx.navigateBack();
     },
     // 计算图片高度
     imgLoaded(e) {
