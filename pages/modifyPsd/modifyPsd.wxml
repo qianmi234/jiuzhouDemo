@@ -1,0 +1,25 @@
+<!--pages/modifyPsd/modifyPsd.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view class="loginList">
+      <view class="loginTel">
+        <input class="loginInput" placeholder-class="phcolor" type="number" placeholder="请输入当前密码" />
+      </view>
+    </view>
+    <view class="loginList">
+      <view class="loginTel">
+        <input class="loginInput" placeholder-class="phcolor" type="number" placeholder="请输入新密码" />
+      </view>
+    </view>
+    <view class="loginList">
+      <view class="loginTel">
+        <input class="loginInput" placeholder-class="phcolor" type="number" placeholder="再次输入新密码" />
+      </view>
+    </view>
+    <view class="loginList">
+      <view bindtap="modifySubmit" class="loginButton">确定</view>
+    </view>
+  </view>
+</view>

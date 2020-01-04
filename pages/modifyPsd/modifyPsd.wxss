@@ -1,0 +1,57 @@
+/* pages/modifyPsd/modifyPsd.wxss */
+.shopContainer{
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  min-height: 100%;
+  z-index: 2;
+}
+.loginList{
+  margin-top: 50rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginTel{
+  width: 650rpx;
+  height: 120rpx;
+  text-align: left;
+  border-bottom: 1rpx solid #eee;
+}
+.loginInput{
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: left;
+  font-size: 34rpx;
+  color: #999;
+}
+.phcolor{
+  font-size: 34rpx;
+  color: #999;
+}
+.loginCode{
+  height: 120rpx;
+  width: 460rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.codeInput{
+  width: 460rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: left;
+  font-size: 34rpx;
+  color: #999;
+  border-bottom: 1rpx solid #eee;
+}
+.loginButton{
+  width: 650rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fff;
+  background: -webkit-linear-gradient(left,#f17b64,#eb6146);
+  border-radius: 10rpx; 
+  font-size: 36rpx;
+  margin-bottom: 10rpx;
+}

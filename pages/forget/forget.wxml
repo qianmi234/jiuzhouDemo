@@ -1,30 +1,22 @@
-<!--logs.wxml-->
+<!--pages/forget/forget.wxml-->
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
   <view class="shopContainer">
     <view class="shopNull" style="height:{{height}}px;"></view>
-    <image class="logIcon" src="{{logIcon}}"></image>
-    <view class="loginName">欢迎来到中和税银</view>
-    <view class="loginList mTop35">
+    <view class="loginList">
       <view class="loginTel">
         <input class="loginInput" placeholder-class="phcolor" type="number" placeholder="请输入手机号" />
       </view>
     </view>
     <view class="loginList">
-      <view class="loginTel">
-        <input class="loginInput" placeholder-class="phcolor" type="number" placeholder="请输入密码" />
-      </view>
-    </view> 
-    <view class="loginList">
       <view class="loginContent">
         <input class="codeInput" placeholder-class="phcolor" type="number" placeholder="请输入验证码" />
-        <image class="codeImage" src="{{logIcon}}"></image>
+        <view class="codeButton">发送验证码</view>
       </view>
     </view> 
     <view class="loginList">
-      <view bindtap="loginSubmit" class="loginButton">登录</view>
+      <view bindtap="loginNext" class="loginButton">下一步</view>
     </view>
-    <view bindtap="forget" class="forgetPsd">忘记密码</view>
   </view>
 </view>
  

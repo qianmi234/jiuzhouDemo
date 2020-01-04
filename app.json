@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/logs/logs",
+    "pages/totalIncopme/totalIncopme",
+    "pages/modifyPsd/modifyPsd",
+    "pages/forget/forget",
+    "pages/newpsd/newpsd",
     "pages/index/index",
     "pages/addBank/addBank",
     "pages/withdrawals/withdrawals",

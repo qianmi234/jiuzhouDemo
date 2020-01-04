@@ -10,7 +10,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     // 导航头组件所需的参数
     nvabarData: {
-      showCapsule: 0, //是否显示左上角图标  1表示显示  0表示不显示
+      showCapsule: 1, //是否显示左上角图标  1表示显示  0表示不显示
       title: '首页', //导航栏 中间的标题
       white: true, // 是就显示白的，不是就显示黑的。
       address: '../../images/home.png' // 加个背景 不加就是没有
@@ -66,6 +66,11 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  modifyPsd:function(){
+    wx.navigateTo({
+      url: '../modifyPsd/modifyPsd'
     })
   }
 })

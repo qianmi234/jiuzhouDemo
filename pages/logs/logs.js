@@ -5,7 +5,7 @@ Page({
   data: {
     nvabarData: {
       showCapsule: 1, //是否显示左上角图标  1表示显示  0表示不显示
-      title: '添加银行卡', //导航栏 中间的标题
+      title: '登录', //导航栏 中间的标题
       white: true, // 是就显示白的，不是就显示黑的。
       address: '' // 加个背景 不加就是没有
     },
@@ -22,6 +22,11 @@ Page({
   loginSubmit:function(){
     wx.navigateTo({
       url: '../index/index'
+    })
+  },
+  forget:function(){
+    wx.navigateTo({
+      url: '../forget/forget'
     })
   }
 })

@@ -9,7 +9,7 @@
     </view>
     <view class="shopSearch">
       <view class="searchContent">
-        <input class="weui-input" auto-focus placeholder="请输入商户名称"/>
+        <input class="weui-input" placeholder="请输入商户名称"/>
         <view class="searchIcon">
           <image src="{{searchIcon}}"></image>  
         </view> 

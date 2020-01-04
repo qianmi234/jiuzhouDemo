@@ -1,0 +1,15 @@
+<!--pages/newpsd/newpsd.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view class="loginList">
+      <view class="loginTel">
+        <input class="loginInput" placeholder-class="phcolor" type="number" placeholder="请输入新密码" />
+      </view>
+    </view>
+    <view class="loginList">
+      <view bindtap="loginSubmit" class="loginButton">完成</view>
+    </view>
+  </view>
+</view>

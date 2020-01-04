@@ -64,7 +64,7 @@
     </navigator>
     <view class="listContent">
       <image class="listIcon" src="{{xiugaiIcon}}"></image>
-      <view class="lastTitle">
+      <view bindtap="modifyPsd" class="lastTitle">
         <text>修改密码</text>
         <view class='arrow'></view>
       </view>
