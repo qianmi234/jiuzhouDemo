@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/logs/logs",
     "pages/index/index",
     "pages/addBank/addBank",
     "pages/withdrawals/withdrawals",
@@ -7,9 +8,7 @@
     "pages/income/income",
     "pages/deal/deal",
     "pages/businessesDetail/businessesDetail",
-    "pages/businesses/businesses",
-    "pages/logs/logs"
-    
+    "pages/businesses/businesses"
   ],
   "window": {
     "backgroundTextStyle": "light",
