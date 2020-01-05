@@ -7,8 +7,8 @@
       <view class="monthTitle">本月收益(元)</view>
       <view class="monthPrice">316000.00</view>
     </view>
-    <view bindtap="totalIncome" class="incomeContent">
-      <view class="incomeList">
+    <view class="incomeContent">
+      <view bindtap="totalIncome" class="incomeList">
         <image src="{{totalIcon}}"></image>
         <view class="listTitle">累计收益</view>
         <view class="listPrice">10,111,222.00</view>
@@ -20,19 +20,19 @@
       </view> 
     </view>
     <view class="incomeContent">
-      <view class="incomeList">
+      <view bindtap="monthIncome" class="incomeList">
         <image src="{{monthIcon}}"></image>
         <view class="listTitle">月结分润</view>
         <view class="listPrice">10,111,222.00</view>
       </view>
-      <view class="incomeList">
+      <view bindtap="quarterIncome" class="incomeList">
         <image src="{{quarterIcon}}"></image>
         <view class="listTitle">季结分润</view>
         <view class="listPrice">10,222,333.00</view>
       </view> 
     </view>
     <view class="incomeContent">
-      <view class="incomeList">
+      <view bindtap="expenseDetails" class="incomeList">
         <image src="{{spendIcon}}"></image>
         <view class="listTitle">累计支出</view>
         <view class="listPrice">10,111,222.00</view>

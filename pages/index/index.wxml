@@ -9,7 +9,7 @@
       <view class="userinfo-company">北京中和税银科技有限公司</view>
     </block>
   </view>
-  <view class="usermotto">
+  <view class="usermotto boxShadow">
     <view class="top_title">
       <view class="myAssets">我的资产</view>
       <navigator url="../withdrawals/withdrawals" hover-class="other-navigator-hover">
@@ -34,7 +34,7 @@
       </view>
     </view>
   </view>
-  <view class="userlist">
+  <view class="userlist boxShadow">
     <view class="listContent">
       <image class="listIcon" src="{{chaxunIcon}}"></image>
       <navigator url="../businesses/businesses" hover-class="other-navigator-hover">

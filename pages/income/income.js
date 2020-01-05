@@ -79,5 +79,20 @@ Page({
     wx.navigateTo({
       url: '../totalIncopme/totalIncopme'
     })
+  },
+  monthIncome: function () {
+    wx.navigateTo({
+      url: '../monthIncome/monthIncome'
+    })
+  },
+  quarterIncome: function () {
+    wx.navigateTo({
+      url: '../quarterIncome/quarterIncome'
+    })
+  },
+  expenseDetails: function () {
+    wx.navigateTo({
+      url: '../expenseDetails/expenseDetails'
+    })
   }
 })

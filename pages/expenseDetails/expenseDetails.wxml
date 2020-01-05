@@ -1,0 +1,61 @@
+<!--pages/expenseDetails/expenseDetails.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view class="companyHead">
+      <view class="dateSelect">
+          <text>选择日期</text>
+          <view class="dateStart">
+            <picker mode="date" value="{{dateStart}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindStartChange">
+              <view class="picker">
+                {{dateStart}}
+              </view>
+            </picker>
+          </view>
+          <text>-</text>
+          <view class="dateEnd">
+            <picker mode="date" value="{{dateEnd}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindEndChange">
+              <view class="picker">
+                {{dateEnd}}
+              </view>
+            </picker>
+          </view>
+          <text class="dateSearch">查询</text>
+        </view>
+    </view>
+    <view class="height20"></view>
+    <view class="shopList">
+      <view class="listHead">
+        <view class="listHeadLeft">
+          <view class="lastText">
+          <image class="bankImg" src="{{leijiIcon}}"></image>
+          <text>支出明细</text>
+          </view>
+          <view class="listPrice">2019/12/02 16:00:00</view>
+        </view>
+        <view class="listHeadRight">
+          <view class="listDate">
+            +30843.00
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="shopList">
+      <view class="listHead">
+        <view class="listHeadLeft">
+          <view class="lastText">
+            <image class="bankImg" src="{{leijiIcon}}"></image>
+            <text>支出明细</text>
+          </view>
+          <view class="listPrice">2019/12/02 16:00:00</view>
+        </view>
+        <view class="listHeadRight">
+          <view class="listDate">
+            +3600.00  
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

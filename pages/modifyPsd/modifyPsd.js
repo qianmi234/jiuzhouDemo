@@ -72,7 +72,7 @@ Page({
   },
   modifySubmit:function(){
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../login/login'
     })
   }
 })

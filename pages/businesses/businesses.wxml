@@ -30,10 +30,6 @@
         <text class="lastListText ">10(%)</text>
       </view>
       <view class="listContent">
-        <text class="firstListText">企业类型</text>
-        <text class="lastListText ">星支付</text>
-      </view>
-      <view class="listContent">
         <text class="firstListText">联系人</text>
         <text class="lastListText ">王旭</text>
       </view>

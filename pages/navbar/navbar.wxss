@@ -9,7 +9,7 @@
   background: #fff;
   color: #000;
   z-index: 9999999;
-  background: -webkit-linear-gradient(left,#EC6659,#EC775A);
+  background: #EC6659;
   overflow: hidden;
 }
 /* 背景图 */

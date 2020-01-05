@@ -1,0 +1,189 @@
+/* pages/monthIncome/monthIncome.wxss */
+.shopContainer{
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  min-height: 100%;
+  z-index: 2;
+}
+.shopNum{
+  height: 100rpx;
+  width: 100%;
+  background-color: #fff;
+  line-height: 100rpx;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.shopNum .title{
+  color: #999;
+  font-size: 30rpx;
+  margin-left:30rpx;
+}
+.shopNum .chance{
+  position:absolute;
+  right: 30rpx;
+  color: #ec674c;
+  font-size: 30rpx;
+  width: 160rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border: 1px solid #ec674c;
+  border-radius: 5px;
+}
+.height20{
+  height: 20rpx;
+  background-color: #f2f2f2;
+}
+.shopList{
+  margin-top: 10rpx;
+  width: 100%;
+  background-color: #fff;
+}
+.listHead{
+  height: 150rpx;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  color: #999;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.listHead .listHeadLeft .firstText{
+  margin-left:30rpx;
+}
+.listHead .listHeadLeft .lastText{
+  margin-left: 30rpx;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  align-items:center;
+  font-size: 30rpx;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 500;
+}
+.listHead .listHeadLeft .bankImg{
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}
+.listHead .listHeadLeft .listPrice{
+  color: #999;
+  font-size: 26rpx;
+  margin-left: 100rpx;
+  margin-top: 24rpx;
+}
+.listHeadRight{
+  position: absolute;
+  right: 30rpx;
+  text-align: right;
+}
+.listHeadRight .listDate{
+  color: #333;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.listHeadRight .revokeType{
+  color: #ec6f58;
+  font-size: 28rpx;
+  margin-top: 24rpx;
+}
+.listHeadRight .haveType{
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 24rpx;
+}
+.listContent{
+  line-height: 98rpx;
+  height: 98rpx;
+  text-align: left;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.listContent .firstListText{
+  position: absolute;
+  color: #999;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  text-align: right;
+  min-width: 120rpx;
+}
+.listContent .lastListText{
+  position: absolute;
+  left: 230rpx;
+  color: #333;
+  font-size: 30rpx;
+}
+.listContent .fontWeight{
+  color:#333;
+  font-weight: 700;
+}
+.listContent .prcieInput{
+  margin-left: 230rpx;
+  width: 350rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.listContent .lastListButton{
+  position: absolute;
+  right: 30rpx;
+  width: 100rpx;
+  height: 56rpx;
+  line-height:56rpx;
+  text-align: center;
+  border: 1rpx solid #ec674c;
+  color: #ec674c;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+.companyHead{
+  height: 120rpx;
+  color: #333;
+  font-size: 32rpx;
+  line-height: 120rpx;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.dateSelect{
+  width: 690rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.dateSelect text{
+  color: #999;
+  font-size: 30rpx;
+}
+.dateSelect .dateStart{
+  margin-left: 30rpx;
+  width: 200rpx;
+  height: 60rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin-right: 15rpx;
+}
+.dateSelect .dateEnd{
+  margin-left: 15rpx;
+  width: 200rpx;
+  height: 60rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.dateSelect .dateSearch{
+  position: absolute;
+  right: 30rpx;
+  color: #f6be41;
+  font-size: 30rpx;
+}

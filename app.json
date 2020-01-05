@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/logs/logs",
+    "pages/login/login",
     "pages/totalIncopme/totalIncopme",
+    "pages/monthIncome/monthIncome",
+    "pages/quarterIncome/quarterIncome",
+    "pages/expenseDetails/expenseDetails",
     "pages/modifyPsd/modifyPsd",
     "pages/forget/forget",
     "pages/newpsd/newpsd",

@@ -1,4 +1,4 @@
-// pages/newpsd/newpsd.js
+// pages/quarterIncome/quarterIncome.js
 const app = getApp()
 Page({
 
@@ -8,11 +8,14 @@ Page({
   data: {
     nvabarData: {
       showCapsule: 1, //是否显示左上角图标  1表示显示  0表示不显示
-      title: '忘记密码', //导航栏 中间的标题
+      title: '季结分润', //导航栏 中间的标题
       white: true, // 是就显示白的，不是就显示黑的。
       address: '' // 加个背景 不加就是没有
     },
     height: app.globalData.height * 2 + 30,
+    leijiIcon: '../../images/jinbi_icon@3x.png',
+    dateStart: '2020-01-01',
+    dateEnd: '2020-12-31',
   },
 
   /**
@@ -70,9 +73,16 @@ Page({
   onShareAppMessage: function () {
 
   },
-  loginSubmit:function(){
-    wx.navigateTo({
-      url: '../login/login'
+  bindStartChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      dateStart: e.detail.value
     })
-  }
+  },
+  bindEndChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      dateEnd: e.detail.value
+    })
+  },
 })

@@ -1,0 +1,16 @@
+//收益查询
+{
+  "code": 0,
+  "msg": "查询成功",
+  "data": {
+    "userID": "001",
+    "userName": "王小二",
+    "company": "北京中和税银科技有限公司",
+    "revenueMonth": "本月收益",
+    "revenueCumulative": "累计收益",
+    "Extractable": "可提余额",
+    "MonthEnd": "月结分润",
+    "QuarterEnd": "季结分润",
+    "totalSpend": "累计支出"
+  }
+}

@@ -97,3 +97,6 @@
 .mrTop30{
   margin-top: 30rpx;
 }
+.boxShadow{
+ box-shadow: 0rpx 10rpx 10rpx 10rpx rgba(165,169,184,0.5);
+}

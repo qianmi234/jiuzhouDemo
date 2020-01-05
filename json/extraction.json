@@ -1,0 +1,38 @@
+//提取申请
+{
+  "code": "0",
+  "msg": "查询成功",
+  "customer": "路宁龙",
+  "userID": "001",
+  "totalAssets": "7777812882",
+  "availableAssets": "1237777",
+  "data": [
+    {
+      "createDate": "2019-10-27 13:36:17",
+      "bankName": "中国工商银行回龙观支行",
+      "bankAccount": "6226123487653333",
+      "Contacts": "张三",
+      "receive_account": "6227283329118876",
+      "phone": "13011111111",
+      "city": "济南市",
+    },
+    {
+      "createDate": "2019-10-27 13:36:17",
+      "bankName": "中国工商银行回龙观支行",
+      "bankAccount": "6226123487653333",
+      "Contacts": "张三",
+      "receive_account": "6227283329118876",
+      "phone": "13011111111",
+      "city": "济南市",
+    },
+    {
+      "createDate": "2019-10-27 13:36:17",
+      "bankName": "中国工商银行回龙观支行",
+      "bankAccount": "6226123487653333",
+      "Contacts": "张三",
+      "receive_account": "6227283329118876",
+      "phone": "13011111111",
+      "city": "济南市",
+    }
+  ]
+  }

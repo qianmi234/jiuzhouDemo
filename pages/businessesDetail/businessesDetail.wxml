@@ -14,7 +14,7 @@
         </view>
       </view>
     </view>
-    <view class="companyInfo">
+    <view class="companyInfo boxShadow">
       <view class="companyHead">
         <text>公司信息</text>
       </view>
@@ -31,7 +31,7 @@
         <text class="lastListText">M0000002</text>
       </view> -->
     </view>
-    <view class="companyInfo mrTop30">
+    <view class="companyInfo mrTop30 boxShadow">
       <view class="companyHead">
         <text>银行信息</text>
       </view>
@@ -44,7 +44,7 @@
         <text class="lastListText">6227 0098 0088 8888</text>
       </view>
     </view>
-    <view class="companyInfo mrTop30">
+    <view class="companyInfo mrTop30 boxShadow">
       <view class="companyHead">
         <text>设置信息</text>
       </view>

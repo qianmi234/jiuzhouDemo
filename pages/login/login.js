@@ -13,6 +13,21 @@ Page({
     logIcon:'../../images/login_logo@2x.png'
   },
   onLoad: function () {
+    var _this = this;
+    wx.request({
+      url: '../../json/login.', //仅为示例，并非真实的接口地址
+      data: {
+        x: '',
+        y: ''
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+      }
+    })
+
     this.setData({
       logs: (wx.getStorageSync('logs') || []).map(log => {
         return util.formatTime(new Date(log))
