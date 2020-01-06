@@ -1,4 +1,5 @@
 <!--pages/deal/deal.wxml-->
+<wxs src="../../wxs/numberFormat.wxs" module="tools" />
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
   <view class="shopContainer">
@@ -39,10 +40,11 @@
               </view>
             </picker>
           </view>
-          <text class="dateSearch">查询</text>
+          <text bindtap="dateSearch" class="dateSearch">查询</text>
         </view>
       </view>
-      <view class="dateContent">
+      <view wx:if="{{dealJson.length == 0}}" class="noData">暂无数据</view>
+      <view wx:if="{{dealJson.length > 0}}" class="dateContent">
         <view class="dateHead">
           <text class="firstListText">交易时间</text>
           <text class="lastListText">交易额</text>
@@ -76,15 +78,16 @@
               </view>
             </picker>
           </view>
-           <text class="dateSearch">查询</text>
+           <text bindtap="monthSearch" class="dateSearch">查询</text>
         </view>
       </view>
-      <view class="dateContent">
+      <view wx:if="{{dealJson.length == 0}}" class="noData">暂无数据</view>
+      <view wx:if="{{dealJson.length > 0}}" class="dateContent">
         <view class="dateHead">
           <text class="firstListText">交易时间</text>
           <text class="lastListText">交易额</text>
         </view>
-        <view class="dateList">
+        <view wx:for="{{dealJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items" class="dateList">
           <text class="firstDate">2019/12/01</text>
           <text class="lastDate">3444.00</text>
         </view>

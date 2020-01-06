@@ -1,5 +1,6 @@
 // pages/deal/deal.js
 const app = getApp()
+const cfg = require("../../utils/config.js");
 Page({
 
   /**
@@ -18,14 +19,18 @@ Page({
     tabIndex:1,
     dateStart: '2020-01-01',
     dateEnd: '2020-12-31',
-    monthStart:'2010-01'
+    monthStart:'2010-01',
+    dealJson:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '加载中...',
+    })
+    this.getDealList();
   },
 
   /**
@@ -76,6 +81,42 @@ Page({
   onShareAppMessage: function () {
 
   },
+  getDealList:function(){
+    var _this = this;
+    var primas = {
+      "agentAccountId": "f987a51c6b6a49549c0502ef631d4abd",
+      "sellerId": "31238"
+    };
+    if (this.tabIndex == 1){
+      primas.endDate = _this.data.dateEnd;
+      primas.startDate = _this.data.dateStart;
+    }else{
+      primas.month = _this.data.monthStart;
+    }
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/seller/sellerProviderDay', //仅为示例，并非真实的接口地址
+      method: 'POST',
+      data: primas,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          _this.setData({
+            dealJson: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
+  },
   tabChange:function(e){
     if (this.data.tabIndex == e.target.dataset.id){
       return;
@@ -83,6 +124,10 @@ Page({
       this.setData({
         tabIndex: e.target.dataset.id
       })
+      wx.showLoading({
+        title: '加载中...',
+      })
+      this.getDealList();
     }
   },
   bindStartDateChange: function (e) {
@@ -102,5 +147,17 @@ Page({
     this.setData({
       monthStart: e.detail.value
     })
+  },
+  dateSearch:function(){
+    wx.showLoading({
+      title: '加载中...',
+    })
+    this.getDealList();
+  },
+  monthSearch:function(){
+    wx.showLoading({
+      title: '加载中...',
+    })
+    this.getDealList();
   }
 })

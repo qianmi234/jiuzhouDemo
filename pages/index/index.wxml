@@ -22,16 +22,16 @@
     </view>
     <view class="totalAssets">
       <view class="titleAssets">总资产(元)</view>
-      <view class="numAssets">{{tools.threeNum(dataJson.agentAccountBalance)}}</view>
+      <view class="numAssets">{{tools.threeNum(dataJson.agentAccountBalance) || 0.00}}</view>
     </view>
     <view class="statistics">
       <view class="left">
         <view class="leftTitile">本月收入</view>
-        <view class="leftNum">+{{tools.threeNum(dataJson.incomeMoneyWithMonth)}}</view>
+        <view class="leftNum">+{{tools.threeNum(dataJson.incomeMoneyWithMonth) || 0.00}}</view>
       </view>
       <view class="right">
         <view class="leftTitile">本月支出</view>
-        <view class="rightNum">-{{tools.threeNum(dataJson.payMoneyWithMonth)}}</view>
+        <view class="rightNum">-{{tools.threeNum(dataJson.payMoneyWithMonth) || 0.00}}</view>
       </view>
     </view>
   </view>

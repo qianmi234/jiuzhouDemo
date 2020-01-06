@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/login/login",
     "pages/businesses/businesses",
     "pages/totalIncopme/totalIncopme",
@@ -9,7 +10,6 @@
     "pages/modifyPsd/modifyPsd",
     "pages/forget/forget",
     "pages/newpsd/newpsd",
-    "pages/index/index",
     "pages/addBank/addBank",
     "pages/withdrawals/withdrawals",
     "pages/withdrawalsList/withdrawalsList",

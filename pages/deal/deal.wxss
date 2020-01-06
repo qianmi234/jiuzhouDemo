@@ -180,3 +180,9 @@
 .mrTop30{
   margin-top: 30rpx;
 }
+.noData{
+  height: 400rpx;
+  line-height: 400rpx;
+  text-align: center;
+  color: #999;
+}
