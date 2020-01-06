@@ -9,7 +9,7 @@
 .shopInfo{
   height: 300rpx;
   width: 100%;
-  background: -webkit-linear-gradient(left,#EC6659,#EC775A);
+  background: #EC6659;
 }
 .infoContent{
   position: absolute;

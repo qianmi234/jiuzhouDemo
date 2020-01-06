@@ -1,5 +1,6 @@
 // pages/businesses/businesses.js
 const app = getApp()
+var json = require("../../json/seller.js")
 Page({
 
   /**
@@ -13,14 +14,17 @@ Page({
       address: '' // 加个背景 不加就是没有
     },
     height: app.globalData.height * 2+30,
-    searchIcon:'../../images/search_icon.png'
+    searchIcon:'../../images/search_icon.png',
+    dataJson:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData)
+    this.setData({
+      dataJson:json.json.data
+    })
   },
 
   /**

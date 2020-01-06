@@ -1,5 +1,5 @@
 //商户查询
-{
+var json = {
   "code": "0",
   "msg": "查询成功",
   "customer": "路宁龙",
@@ -102,3 +102,7 @@
     }
     ]
   }
+
+module.exports = {
+  json:json
+}

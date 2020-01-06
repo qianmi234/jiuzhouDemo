@@ -107,3 +107,9 @@
   color:#333;
   font-weight: 700;
 }
+.noData{
+  color: #999;
+  min-height: 600rpx;
+  line-height: 600rpx;
+  text-align: center;
+}

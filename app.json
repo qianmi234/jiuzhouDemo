@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/businesses/businesses",
     "pages/totalIncopme/totalIncopme",
     "pages/monthIncome/monthIncome",
     "pages/quarterIncome/quarterIncome",
@@ -14,8 +15,7 @@
     "pages/withdrawalsList/withdrawalsList",
     "pages/income/income",
     "pages/deal/deal",
-    "pages/businessesDetail/businessesDetail",
-    "pages/businesses/businesses"
+    "pages/businessesDetail/businessesDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

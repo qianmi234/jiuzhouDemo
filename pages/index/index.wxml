@@ -1,12 +1,13 @@
 <!--index.wxml-->
+<wxs src="../../wxs/numberFormat.wxs" module="tools" />
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
-      <view class="userinfo-company">北京中和税银科技有限公司</view>
+      <view class="userinfo-nickname">{{dataJson.agentPerson}}</view>
+      <view class="userinfo-company">{{dataJson.agentName}}</view>
     </block>
   </view>
   <view class="usermotto boxShadow">
@@ -21,16 +22,16 @@
     </view>
     <view class="totalAssets">
       <view class="titleAssets">总资产(元)</view>
-      <view class="numAssets">10,000,003,004.00</view>
+      <view class="numAssets">{{tools.threeNum(dataJson.agentAccountBalance)}}</view>
     </view>
     <view class="statistics">
       <view class="left">
         <view class="leftTitile">本月收入</view>
-        <view class="leftNum">+3,160.00</view>
+        <view class="leftNum">+{{tools.threeNum(dataJson.incomeMoneyWithMonth)}}</view>
       </view>
       <view class="right">
         <view class="leftTitile">本月支出</view>
-        <view class="rightNum">-3,160.00</view>
+        <view class="rightNum">-{{tools.threeNum(dataJson.payMoneyWithMonth)}}</view>
       </view>
     </view>
   </view>

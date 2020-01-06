@@ -1,0 +1,31 @@
+var threeNum = function(num) {
+  var f = parseFloat(num);
+  if (isNaN(f)) {
+    return false;
+  }
+  var f = Math.round(num * 100) / 100;
+  var s = f.toString();
+  var rs = s.indexOf('.');
+  if (rs < 0) {
+    rs = s.length;
+    s += '.';
+  }
+  while (s.length <= rs + 2) {
+    s += '0';
+  }
+  s=s.split(".");
+  var s0=s[0];
+  var s1=s[1];
+  var result = '';
+  while (s0.length > 3) {
+    result = ',' + s0.slice(-3) + result;
+    s0 = s0.slice(0, s0.length - 3);
+  }
+  if (s0) {
+    result = s0 + result +"."+s1;
+  }
+  return result;
+}
+module.exports={
+  threeNum: threeNum
+}
