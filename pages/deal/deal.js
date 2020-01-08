@@ -84,10 +84,10 @@ Page({
   getDealList:function(){
     var _this = this;
     var primas = {
-      "agentAccountId": "f987a51c6b6a49549c0502ef631d4abd",
+      "agentId": "f987a51c6b6a49549c0502ef631d4abd",
       "sellerId": "31238"
     };
-    if (this.tabIndex == 1){
+    if (this.data.tabIndex == 1){
       primas.endDate = _this.data.dateEnd;
       primas.startDate = _this.data.dateStart;
     }else{

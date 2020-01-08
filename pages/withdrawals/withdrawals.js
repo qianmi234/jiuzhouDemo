@@ -15,6 +15,7 @@ Page({
     height: app.globalData.height * 2 + 30,
     zhaoshangIcon:'../../images/zhaoshang_icon@2x.png',
     checkIcon: '../../images/Check3x.png',
+    addCardIcon:'../../images/tianjia-icon@3x.png',
     showModalStatus:false
   },
 

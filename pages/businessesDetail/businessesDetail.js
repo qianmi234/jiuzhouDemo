@@ -1,5 +1,6 @@
 // pages/businessesDetail/businessesDetail.js
 const app = getApp()
+const cfg = require("../../utils/config.js");
 Page({
 
   /**
@@ -14,14 +15,24 @@ Page({
     },
     height: app.globalData.height * 2 + 30,
     personIcon: '../../images/img_personal.png',
-    telIcon:'../../images/telephone_icon.png'
+    telIcon:'../../images/telephone_icon.png',
+    dataJson:'',
+    sellerId:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      nvabarData:{
+        showCapsule: 1,
+        title: options.sellerCompanyName,
+        white: true, // 是就显示白的，不是就显示黑的。
+        address: '' // 加个背景 不加就是没有
+      },
+      sellerId: options.sellerId
+    })
   },
 
   /**
@@ -34,8 +45,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (options) {
+    this.getDataList();
   },
 
   /**
@@ -71,5 +82,36 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getDataList: function () {
+    wx.showLoading({
+      title: '加载中...',
+    })
+    var _this = this;
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/seller/sellerDetail', //仅为示例，并非真实的接口地址
+      method: 'GET',
+      data: {
+        "sellerId": this.data.sellerId
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          _this.setData({
+            dataJson: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
   }
 })

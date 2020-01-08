@@ -1,4 +1,6 @@
 <!--pages/withdrawalsList/withdrawalsList.wxml-->
+<wxs src="../../wxs/numberFormat.wxs" module="tools" />
+<wxs src="../../wxs/orderType.wxs" module="toolType" />
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
   <view class="shopContainer">
@@ -7,7 +9,7 @@
       <view class="dateSelect">
           <text>选择日期</text>
           <view class="dateStart">
-            <picker mode="date" value="{{dateStart}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindStartChange">
+            <picker mode="date" value="{{dateStart}}" start="{{}}" end="{{}}" bindchange="bindStartChange">
               <view class="picker">
                 {{dateStart}}
               </view>
@@ -15,47 +17,31 @@
           </view>
           <text>-</text>
           <view class="dateEnd">
-            <picker mode="date" value="{{dateEnd}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindEndChange">
+            <picker mode="date" value="{{dateEnd}}" start="{{}}" end="{{}}" bindchange="bindEndChange">
               <view class="picker">
                 {{dateEnd}}
               </view>
             </picker>
           </view>
-          <text class="dateSearch">查询</text>
+          <text bindtap="getDataList" class="dateSearch">查询</text>
         </view>
     </view>
     <view class="height20"></view>
-    <view class="shopList">
+    <view wx:if="{{dataJson.length == 0}}" class="noData">暂无数据</view>
+    <view wx:if="{{dataJson.length > 0}}" wx:if="{{dataJson.length > 0}}" wx:for="{{dataJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items" class="shopList">
       <view class="listHead">
         <view class="listHeadLeft">
           <view class="lastText">
-          <image class="bankImg" src="{{zhaoshangIcon}}"></image>
-        招商银行(5468)*刘美琪
+          <image wx:if='{{toolType.bankType(items.bankName)}}' class="bankImg" src="{{toolType.bankType(items.bankName)}}"></image>
+        {{items.bankName}}({{items.orderCode}})*{{items.accountName}}
           </view>
-          <view class="listPrice">3200.00</view>
+          <view class="listPrice">{{tools.threeNum(items.bankAccount) || tools.threeNum(0)}}</view>
         </view>
         <view class="listHeadRight">
           <view class="listDate">
-            2019/12/02 16:00:00
+            {{items.applyTime}}
           </view>
-          <view class="revokeType">撤销</view>
-        </view>
-      </view>
-    </view>
-    <view class="shopList">
-      <view class="listHead">
-        <view class="listHeadLeft">
-          <view class="lastText">
-            <image class="bankImg" src="{{zhaoshangIcon}}"></image>
-            <text>招商银行(5468)*刘美琪</text>
-          </view>
-          <view class="listPrice">3200.00</view>
-        </view>
-        <view class="listHeadRight">
-          <view class="listDate">
-            2019/12/02 16:00:00
-          </view>
-          <view class="haveType">已到账</view>
+          <view class="{{toolType.orderType(items.orderType)}}">{{toolType.orderName(items.orderType)}}</view>
         </view>
       </view>
     </view>

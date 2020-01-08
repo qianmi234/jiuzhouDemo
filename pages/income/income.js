@@ -1,5 +1,6 @@
 // pages/income/income.js
 const app = getApp()
+const cfg = require("../../utils/config.js");
 Page({
 
   /**
@@ -18,6 +19,7 @@ Page({
     monthIcon: '../../images/yuejie_icon@3x.png',
     quarterIcon: '../../images/jijie_icon@3x.png',
     spendIcon: '../../images/leijizhichu_icon@3x.png',
+    incomeJson:''
   },
 
   /**
@@ -38,7 +40,35 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.showLoading({
+      title: '加载中...',
+    })
+    var _this = this;
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/cash/agentCommionInfo', //仅为示例，并非真实的接口地址
+      method: 'GET',
+      data: {
+        agentId: wx.getStorageSync('agentId')
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          _this.setData({
+            dataJson: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
   },
 
   /**

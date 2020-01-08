@@ -10,14 +10,14 @@
     <view class="shopSearch">
       <view class="searchContent">
         <input class="weui-input" placeholder="请输入商户名称"/>
-        <view class="searchIcon">
+        <view bindtap="searchData" class="searchIcon">
           <image src="{{searchIcon}}"></image>  
         </view> 
       </view>
     </view>
     <view wx:if="{{dataJson.length == 0}}" class="noData">暂无数据</view>
     <view wx:if="{{dataJson}}" wx:for="{{dataJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items">
-        <navigator url="../businessesDetail/businessesDetail" hover-class="other-navigator-hover" >
+        <navigator url="../businessesDetail/businessesDetail?sellerId={{items.sellerId}}&sellerCompanyName={{items.sellerCompanyName}}" hover-class="other-navigator-hover" >
           <view class="shopList">
           <view class="listHead">
             <text class="firstText ">S0001</text>
@@ -25,7 +25,7 @@
           </view>
           <view class="listContent">
             <text class="firstListText">商户名称</text>
-            <text class="lastListText fontWeight">{{items.company}}</text>
+            <text class="lastListText fontWeight">{{items.sellerCompanyName}}</text>
           </view>
           <view class="listContent">
             <text class="firstListText">服务费率</text>
@@ -33,11 +33,11 @@
           </view>
           <view class="listContent">
             <text class="firstListText">联系人</text>
-            <text class="lastListText ">王旭</text>
+            <text class="lastListText ">{{items.sellerName}}</text>
           </view>
           <view class="listContent">
             <text class="firstListText">联系电话</text>
-            <text class="lastListText ">13800138000</text>
+            <text class="lastListText ">{{items.sellerMobile}}</text>
           </view>    
         </view>
       </navigator>

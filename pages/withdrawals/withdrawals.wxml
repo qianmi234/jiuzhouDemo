@@ -83,7 +83,7 @@
     <navigator url="../addBank/addBank" hover-class="other-navigator-hover"> 
       <view class="addCard">
         <view class="cardLeft">
-          <image src="{{zhaoshangIcon}}"></image>
+          <image src="{{addCardIcon}}"></image>
           添加银行卡
         </view>
         <view class="arrowRight"></view>

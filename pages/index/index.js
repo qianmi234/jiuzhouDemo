@@ -69,6 +69,12 @@ Page({
     
   },
   onShow:function(){
+    if (!wx.getStorageSync('agentId')) {
+      wx.navigateTo({
+        url: '../login/login'
+      })
+      return false;
+    }
     wx.showLoading({
       title: '加载中...',
     })

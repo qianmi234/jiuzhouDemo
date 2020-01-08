@@ -1,5 +1,6 @@
 // pages/withdrawalsList/withdrawalsList.js
 const app = getApp()
+const cfg = require("../../utils/config.js");
 Page({
 
   /**
@@ -14,8 +15,10 @@ Page({
     },
     height: app.globalData.height * 2 + 30,
     zhaoshangIcon: '../../images/zhaoshang_icon@2x.png',
+    zhongguoIcon: '../../images/zhaoshang_icon@2x.png',
     dateStart: '2020-01-01',
     dateEnd: '2020-12-31',
+    dataJson:''
   },
 
   /**
@@ -36,7 +39,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getWithdrawals();
   },
 
   /**
@@ -85,4 +88,40 @@ Page({
       dateEnd: e.detail.value
     })
   },
+  getWithdrawals:function(){
+    var _this = this;
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/cash/withdrawallist', //仅为示例，并非真实的接口地址
+      data: {
+        "agentId": 'f987a51c6b6a49549c0502ef631d4abd',//wx.getStorageSync('agentId'),
+        "startDate": this.data.dateStart,
+        "endDate": this.data.dateEnd
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          _this.setData({
+            dataJson: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
+  },
+  getDataList:function(){
+    this.getWithdrawals();
+  }
 })

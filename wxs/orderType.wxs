@@ -1,0 +1,44 @@
+var orderType = function (type) {
+  var result="";
+  if(type=="0"){
+    result = "applyType"
+  }
+  if(type == "1") {
+    result = "haveType"
+  }
+  if(type == "2") {
+    result = "revokeType"
+  }
+  return result;
+}
+var orderName = function (type) {
+  var result = "";
+  if (type == "0") {
+    result = "已申请"
+  }
+  if (type == "1") {
+    result = "已到账"
+  }
+  if (type == "2") {
+    result = "撤销"
+  }
+  return result;
+}
+var bankType = function (type) {
+  var result = "";
+  if (type.indexOf("中国") >= 0) {
+    result = "/images/zhongguo@2x.png"
+  }
+  if (type.indexOf("招商") >= 0) {
+    result = "/images/zhaoshang_icon@2x.png"
+  }
+  if (type.indexOf("工商") >= 0) {
+    result = "/images/gongshang_icon@2x.png"
+  }
+  return result;
+}
+module.exports = {
+  orderType: orderType,
+  bankType: bankType,
+  orderName: orderName
+}

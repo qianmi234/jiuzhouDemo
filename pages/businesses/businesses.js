@@ -1,6 +1,6 @@
 // pages/businesses/businesses.js
 const app = getApp()
-var json = require("../../json/seller.js")
+const cfg = require("../../utils/config.js");
 Page({
 
   /**
@@ -22,9 +22,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      dataJson:json.json.data
-    })
   },
 
   /**
@@ -38,7 +35,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getDataList();
   },
 
   /**
@@ -89,5 +86,39 @@ Page({
           (wx.getSystemInfoSync().windowWidth / e.detail.width)
       })
     }
+  },
+  getDataList:function(){
+    wx.showLoading({
+      title: '加载中...',
+    })
+    var _this = this;
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/seller/sellerlistWithAgentId', //仅为示例，并非真实的接口地址
+      method: 'GET',
+      data: {
+        "agentId": 'f987a51c6b6a49549c0502ef631d4abd'//wx.getStorageSync('agentId')
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          _this.setData({
+            dataJson: res.data.data.rows
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
+  },
+  searchData:function(){
+    this.getDataList();
   }
 })

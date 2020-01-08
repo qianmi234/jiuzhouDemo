@@ -26,7 +26,7 @@
         <view class="dateSelect">
           <text>按日选择</text>
           <view class="dateStart">
-            <picker mode="date" value="{{dateStart}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindStartDateChange">
+            <picker mode="date" value="{{dateStart}}" start="{{}}" end="{{}}" bindchange="bindStartDateChange">
               <view class="picker">
                 {{dateStart}}
               </view>
@@ -49,21 +49,9 @@
           <text class="firstListText">交易时间</text>
           <text class="lastListText">交易额</text>
         </view>
-        <view class="dateList">
-          <text class="firstDate">2019/12/01</text>
-          <text class="lastDate">3444.00</text>
-        </view>
-        <view class="dateList">
-          <text class="firstDate">2019/12/01</text>
-          <text class="lastDate">3444.00</text>
-        </view>
-        <view class="dateList">
-          <text class="firstDate">2019/12/01</text>
-          <text class="lastDate">3444.00</text>
-        </view>
-        <view class="dateList">
-          <text class="firstDate">2019/12/01</text>
-          <text class="lastDate">3444.00</text>
+        <view wx:for="{{dealJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items" class="dateList">
+          <text class="firstDate">{{items.endTime}}</text>
+          <text class="lastDate">{{tools.threeNum(items.realAmount) || tools.threeNum(0)}}</text>
         </view>
       </view>
     </view>
@@ -88,16 +76,8 @@
           <text class="lastListText">交易额</text>
         </view>
         <view wx:for="{{dealJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items" class="dateList">
-          <text class="firstDate">2019/12/01</text>
-          <text class="lastDate">3444.00</text>
-        </view>
-        <view class="dateList">
-          <text class="firstDate">2019/12/01</text>
-          <text class="lastDate">3444.00</text>
-        </view>
-        <view class="dateList">
-          <text class="firstDate">2019/12/01</text>
-          <text class="lastDate">3444.00</text>
+           <text class="firstDate">{{items.endTime}}</text>
+          <text class="lastDate">{{tools.threeNum(items.realAmount) || tools.threeNum(0)}}</text>
         </view>
       </view>
     </view>

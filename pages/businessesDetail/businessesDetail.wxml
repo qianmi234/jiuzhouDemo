@@ -6,10 +6,10 @@
     <view class="shopInfo">
       <view class="infoContent">
         <image class="imageInfo" src="{{personIcon}}"></image>
-        <view class="shopName">诸葛烤鱼</view>
+        <view class="shopName">{{dataJson.sellerCompanyName}}</view>
         <view class="shopTel">
-          <text>孙立群</text>
-          <text class="mrLeft20">130 0000 1111</text>
+          <text>{{dataJson.sellerName}}</text>
+          <text class="mrLeft20">{{dataJson.sellerMobile}}</text>
           <image class="telImage" src="{{telIcon}}"></image>
         </view>
       </view>
@@ -24,7 +24,7 @@
       </view> -->
       <view class="companyContent">
         <text class="firstListText">税务登记号</text>
-        <text class="lastListText">SW000002</text>
+        <text class="lastListText">{{dataJson.taxPayerCode}}</text>
       </view>
       <!-- <view class="companyContent">
         <text class="firstListText">组织机构代码</text>
@@ -37,11 +37,11 @@
       </view>
       <view class="companyContent">
         <text class="firstListText">开户行</text>
-        <text class="lastListText">中国银行</text>
+        <text class="lastListText">{{dataJson.sellerBank}}</text>
       </view>
       <view class="companyContent">
         <text class="firstListText">银行账号</text>
-        <text class="lastListText">6227 0098 0088 8888</text>
+        <text class="lastListText">{{dataJson.sellerBankAccount}}</text>
       </view>
     </view>
     <view class="companyInfo mrTop30 boxShadow">
@@ -54,11 +54,11 @@
       </view>
       <view class="companyContent">
         <text class="firstListText">最大薪水</text>
-        <text class="lastListText">9000</text>
+        <text class="lastListText">{{dataJson.maxPay}}</text>
       </view>
       <view class="companyContent">
         <text class="firstListText">最小薪水</text>
-        <text class="lastListText">1000</text>
+        <text class="lastListText">{{dataJson.minPay}}</text>
       </view>
     </view>
   </view>

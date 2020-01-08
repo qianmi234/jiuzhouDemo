@@ -1,41 +1,42 @@
 <!--pages/income/income.wxml-->
+<wxs src="../../wxs/numberFormat.wxs" module="tools" />
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
   <view class="shopContainer">
     <view class="shopNull" style="height:{{height}}px;"></view>
     <view class="monthIncome">
       <view class="monthTitle">本月收益(元)</view>
-      <view class="monthPrice">316000.00</view>
+      <view class="monthPrice">{{tools.threeNum(incomeJson.agentAccountIncome) || tools.threeNum(0)}}</view>
     </view>
     <view class="incomeContent">
       <view bindtap="totalIncome" class="incomeList">
         <image src="{{totalIcon}}"></image>
         <view class="listTitle">累计收益</view>
-        <view class="listPrice">10,111,222.00</view>
+        <view class="listPrice">{{tools.threeNum(incomeJson.agentAccountIncome) || tools.threeNum(0)}}</view>
       </view>
       <view class="incomeList">
         <image src="{{canBeIcon}}"></image>
         <view class="listTitle">可提余额</view>
-        <view class="listPrice">10,222,333.00</view>
+        <view class="listPrice">{{tools.threeNum(incomeJson.agentAccountBalance) || tools.threeNum(0)}}</view>
       </view> 
     </view>
     <view class="incomeContent">
       <view bindtap="monthIncome" class="incomeList">
         <image src="{{monthIcon}}"></image>
         <view class="listTitle">月结分润</view>
-        <view class="listPrice">10,111,222.00</view>
+        <view class="listPrice">{{tools.threeNum(incomeJson.monthCommission) || tools.threeNum(0)}}</view>
       </view>
       <view bindtap="quarterIncome" class="incomeList">
         <image src="{{quarterIcon}}"></image>
         <view class="listTitle">季结分润</view>
-        <view class="listPrice">10,222,333.00</view>
+        <view class="listPrice">{{tools.threeNum(incomeJson.seasonCommission) || tools.threeNum(0)}}</view>
       </view> 
     </view>
     <view class="incomeContent">
       <view bindtap="expenseDetails" class="incomeList">
         <image src="{{spendIcon}}"></image>
         <view class="listTitle">累计支出</view>
-        <view class="listPrice">10,111,222.00</view>
+        <view class="listPrice">{{tools.threeNum(incomeJson.agentAccountPay) || tools.threeNum(0)}}</view>
       </view>
     </view>
   </view>
