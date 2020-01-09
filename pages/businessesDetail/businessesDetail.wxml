@@ -50,7 +50,7 @@
       </view>
       <view class="companyContent">
         <text class="firstListText">服务费率</text>
-        <text class="lastListText">20.10%</text>
+        <text class="lastListText">{{items.serverAmount || 0}}%</text>
       </view>
       <view class="companyContent">
         <text class="firstListText">最大薪水</text>

@@ -6,7 +6,7 @@
     <view class="shopNull" style="height:{{height}}px;"></view>
     <view class="monthIncome">
       <view class="monthTitle">本月收益(元)</view>
-      <view class="monthPrice">{{tools.threeNum(incomeJson.agentAccountIncome) || tools.threeNum(0)}}</view>
+      <view class="monthPrice">{{tools.threeNum(incomeJson.monthProfit) || tools.threeNum(0)}}</view>
     </view>
     <view class="incomeContent">
       <view bindtap="totalIncome" class="incomeList">

@@ -1,5 +1,6 @@
 <!--pages/addBank/addBank.wxml-->
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<wxs src="../../wxs/orderType.wxs" module="toolType" />
 <view class="container">
   <view class="shopContainer">
     <view class="shopNull" style="height:{{height}}px;"></view>
@@ -7,23 +8,23 @@
       <view class="listHead">
         <view class="firstText ">开户行</view>
         <view class="lastText">
-          <input class="weui-input" maxlength="20" value="" placeholder="请输入银行名称" />
+          <input bindtap="changeBankName" class="weui-input" maxlength="20" value="{{bankName}}" placeholder="请输入银行名称" placeholder-class="place" disabled/>
         </view>
-        <view bindtap="clickme" class='arrow'></view>
+        <view bindtap="showModal" class='arrow'></view>
       </view>
       <view class="listContent">
         <text class="firstListText">支行名称</text>
-        <input class="prcieInput" maxlength="30" value="" placeholder="请输入支行名称" />
+        <input bindinput="changeBankSubject" class="prcieInput" maxlength="30" value="{{bankNameSubject}}" placeholder="请输入支行名称" placeholder-class="place" />
       </view>
       <view class="listContent">
         <view class="firstListText">户名</view>
-        <input class="prcieInput" value="" placeholder="持卡人姓名" />
+        <input bindinput="changeAgentBankName" class="prcieInput" value="{{agentBankName}}" placeholder="持卡人姓名" placeholder-class="place"/>
       </view>
       <view class="listContent">
         <view class="firstListText">卡号</view>
-        <input class="prcieInput" type="number" placeholder="银行卡号" />
+        <input bindinput="changeBankCode" class="prcieInput" type="number" placeholder="银行卡号" placeholder-class="place" value="{{agentBankAccount}}"/>
       </view>
-      <view class="listContent">
+      <!-- <view class="listContent">
         <view class="firstListText">身份证正面</view>
         <view class="lastListButton" bindtap="uploadUp">选择文件</view>
         <image class="imageUp" src="{{tempFileUp[0]}}"></image>
@@ -32,53 +33,30 @@
         <view class="firstListText">身份证背面</view>
         <view class="lastListButton" bindtap="uploadDown">选择文件</view>
         <image class="imageUp" src="{{tempFileDown[0]}}"></image>
-      </view>
+      </view> -->
       <view class="buttonContent">
-        <view class="exportButton">确认提交</view>
+        <view bindtap="addBank" class="exportButton">确认提交</view>
       </view>
     </view>
   </view>
   <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
   <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
     <view class="maskHead">
-      <view class="headTitle">选择银行卡</view>
+      <view class="headTitle">选择银行</view>
       <view bindtap="hideModal" class="headCancle">取消</view>
     </view>
-    <view class="crdList">
-      <view class="cardListLeft">
-        <image class="cardImage" src="{{zhaoshangIcon}}"></image>
-        中国工商银行(2403)
-      </view>
-      <view>
-        <image class="onImage displayNone" src="{{checkIcon}}"></image>
-      </view>
-    </view>
-    <view class="crdList">
-      <view class="cardListLeft">
-        <image class="cardImage" src="{{zhaoshangIcon}}"></image>
-        中国工商银行(2403)
-      </view>
-      <view>
-        <image class="onImage" src="{{checkIcon}}"></image>
-      </view>
-    </view>
-    <view class="crdList">
-      <view class="cardListLeft">
-        <image class="cardImage" src="{{zhaoshangIcon}}"></image>
-        中国工商银行(2403)
-      </view>
-      <view>
-        <image class="onImage displayNone" src="{{checkIcon}}"></image>
-      </view>
-    </view>
-    <navigator url="../addBank/addBank" hover-class="other-navigator-hover"> 
-      <view class="addCard">
-        <view class="cardLeft">
-          <image src="{{zhaoshangIcon}}"></image>
-          添加银行卡
+    <view class="bankList">
+      <block wx:for="{{bankList}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items">
+        <view bindtap="changeBank" class="crdList" data-id="{{items.bankCode}}" data-name="{{items.bankName}}">
+          <view class="cardListLeft" >
+            <image wx:if='{{toolType.bankType(items.bankCode)}}' class="cardImage" src="{{toolType.bankType(items.bankCode)}}"></image>
+            {{items.bankName}}
+          </view>
+          <view wx:if="{{items.bankCode == bankCode}}">
+            <image class="onImage" src="{{checkIcon}}"></image>
+          </view>
         </view>
-        <view class="arrowRight"></view>
-      </view>
-    </navigator>
+      </block>
+    </view>
   </view>
 </view>

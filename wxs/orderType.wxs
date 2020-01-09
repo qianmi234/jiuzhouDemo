@@ -25,16 +25,39 @@ var orderName = function (type) {
   return result;
 }
 var bankType = function (type) {
+  console.log(type)
   var result = "";
-  if (type.indexOf("中国") >= 0) {
-    result = "/images/zhongguo@2x.png"
+  if (type == "001") {
+    result = "/images/zgrmyh_icon@3x.png"
   }
-  if (type.indexOf("招商") >= 0) {
-    result = "/images/zhaoshang_icon@2x.png"
+  if (type == "011") {
+    result = "/images/gjjk_icon@3x.png"
   }
-  if (type.indexOf("工商") >= 0) {
+  if (type == "102") {
     result = "/images/gongshang_icon@2x.png"
   }
+  if (type == "103") {
+    result = "/images/zgnyyh_icon@3x.png"
+  }
+  if (type == "104") {
+    result = "/images/zhongguoyinghang_icon@3x.png"
+  }
+  if (type == "105") {
+    result = "/images/zgjsyh_icon@3x.png"
+  }
+  if (type == "201") {
+    result = "/images/gjkfyh_icon@3x.png"
+  }
+  if (type == "202") {
+    result = "/images/zgjckyh_icon@3x.png"
+  }
+  if (type == "203") {
+    result = "/images/zgnyfzyh_icon@3x.png"
+  }
+  if (type == "301") {
+    result = "/images/jtyh_icon@3x.png"
+  }
+
   return result;
 }
 module.exports = {

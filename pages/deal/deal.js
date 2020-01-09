@@ -19,7 +19,7 @@ Page({
     tabIndex:1,
     dateStart: '2020-01-01',
     dateEnd: '2020-12-31',
-    monthStart:'2010-01',
+    monthStart:'2020-01',
     dealJson:""
   },
 
@@ -104,7 +104,13 @@ Page({
         wx.hideLoading();
         if (res.data.flag) {
           _this.setData({
-            dealJson: res.data.data
+            dealJson: res.data.data,
+            nvabarData: {
+              showCapsule: 1, //是否显示左上角图标  1表示显示  0表示不显示
+              title: res.data.data.agentName+'详情', //导航栏 中间的标题
+              white: true, // 是就显示白的，不是就显示黑的。
+              address: '' // 加个背景 不加就是没有
+            },
           })
         } else {
           wx.showToast({

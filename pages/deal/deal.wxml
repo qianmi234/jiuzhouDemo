@@ -1,4 +1,19 @@
 <!--pages/deal/deal.wxml-->
+<wxs module="telSlice">
+  var telChange=function(tel){
+    var result = '';
+    tel = tel.toString();
+    while (tel.length > 4) {
+      result = ' ' + tel.slice(-4) + result;
+      tel = tel.slice(0, tel.length - 4);
+    }
+    if (tel) {
+    result = tel + result;
+  }
+    return result
+  }
+  module.exports.telSlice = telChange; 
+</wxs>
 <wxs src="../../wxs/numberFormat.wxs" module="tools" />
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
@@ -7,10 +22,10 @@
     <view class="dealInfo">
       <view class="dealContent">
         <image class="imageInfo" src="{{personIcon}}"></image>
-        <view class="shopName">诸葛烤鱼</view>
+        <view class="shopName">{{dealJson.agentName}}</view>
         <view class="shopTel">
-          <text>孙立群</text>
-          <text class="mrLeft20">130 0000 1111</text>
+          <text>{{dealJson.agentPerson}}</text>
+          <text class="mrLeft20">{{telSlice.telSlice(dealJson.agentPhone)}}</text>
           <image class="telImage" src="{{telIcon}}"></image>
         </view>
       </view>
@@ -43,13 +58,13 @@
           <text bindtap="dateSearch" class="dateSearch">查询</text>
         </view>
       </view>
-      <view wx:if="{{dealJson.length == 0}}" class="noData">暂无数据</view>
-      <view wx:if="{{dealJson.length > 0}}" class="dateContent">
+      <view wx:if="{{dealJson.vos.length == 0}}" class="noData">暂无数据</view>
+      <view wx:if="{{dealJson.vos.length > 0}}" class="dateContent">
         <view class="dateHead">
           <text class="firstListText">交易时间</text>
           <text class="lastListText">交易额</text>
         </view>
-        <view wx:for="{{dealJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items" class="dateList">
+        <view wx:for="{{dealJson.vos}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items" class="dateList">
           <text class="firstDate">{{items.endTime}}</text>
           <text class="lastDate">{{tools.threeNum(items.realAmount) || tools.threeNum(0)}}</text>
         </view>
@@ -69,13 +84,13 @@
            <text bindtap="monthSearch" class="dateSearch">查询</text>
         </view>
       </view>
-      <view wx:if="{{dealJson.length == 0}}" class="noData">暂无数据</view>
-      <view wx:if="{{dealJson.length > 0}}" class="dateContent">
+      <view wx:if="{{dealJson.vos.length == 0}}" class="noData">暂无数据</view>
+      <view wx:if="{{dealJson.vos.length > 0}}" class="dateContent">
         <view class="dateHead">
           <text class="firstListText">交易时间</text>
           <text class="lastListText">交易额</text>
         </view>
-        <view wx:for="{{dealJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items" class="dateList">
+        <view wx:for="{{dealJson.vos}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items" class="dateList">
            <text class="firstDate">{{items.endTime}}</text>
           <text class="lastDate">{{tools.threeNum(items.realAmount) || tools.threeNum(0)}}</text>
         </view>

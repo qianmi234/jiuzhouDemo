@@ -1,5 +1,6 @@
 // pages/withdrawals/withdrawals.js
 const app = getApp()
+const cfg = require("../../utils/config.js");
 Page({
 
   /**
@@ -16,14 +17,21 @@ Page({
     zhaoshangIcon:'../../images/zhaoshang_icon@2x.png',
     checkIcon: '../../images/Check3x.png',
     addCardIcon:'../../images/tianjia-icon@3x.png',
-    showModalStatus:false
+    showModalStatus:false,
+    bankList:'',
+    bankCode:'',
+    bankName:'',
+    account:'',
+    bankAccount:'',
+    tel:'',
+    accountName:'',
+    cashAmount:'0'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
@@ -37,7 +45,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getBankList();
   },
 
   /**
@@ -120,5 +128,122 @@ Page({
         showModalStatus: false
       })
     }.bind(this), 200)
+  },
+  getBankList:function(){
+    var _this = this;
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/cash/accountBankList', //仅为示例，并非真实的接口地址
+      data: {
+        "agentId":'f987a51c6b6a49549c0502ef631d4abd'
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          _this.setData({
+            bankList: res.data.data,
+            bankCode: res.data.data[0].bankCode,
+            bankName: res.data.data[0].bankName,
+            account: res.data.data[0].agentBankAccount.slice(-4),
+            bankAccount: res.data.data[0].agentBankAccount,
+            accountName: res.data.data[0].agentBankName
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
+  },
+  changeBank:function(event){
+    let postId = event.currentTarget.dataset.id;
+    let name = event.currentTarget.dataset.name;
+    let account = event.currentTarget.dataset.account;
+    let accountName = event.currentTarget.dataset.accountname
+    this.setData({
+      bankCode: postId,
+      bankName: name,
+      account: account.slice(-4),
+      bankAccount: account,
+      accountName: accountName
+    })
+    console.log(this.data)
+    this.hideModal();
+  },
+  submitExtract:function(){
+    var _this = this;
+    if (_this.data.cashAmount == 0 || _this.data.cashAmount==""){
+      wx.showToast({
+        title: '请输入提现金额',
+        icon: 'none',
+        duration: 2000
+      })
+      return false
+    }
+    if (_this.data.tel == "") {
+      wx.showToast({
+        title: '请输入您的手机号码',
+        icon: 'none',
+        duration: 2000
+      })
+      return false
+    }
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/cash/withdrawalApply', //仅为示例，并非真实的接口地址
+      data: {
+        "accountName": this.data.accountName,
+        "agentId": "f987a51c6b6a49549c0502ef631d4abd",
+        "bankAccount": this.data.bankAccount,
+        "bankName": this.data.bankName,
+        "cashAmount": this.data.cashAmount,
+        "mobile": this.data.tel,
+        "orderCode": this.data.bankCode
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          wx.showToast({
+            title: "申请成功",
+            icon: 'success',
+            mask: true,
+            duration: 1500
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
+  },
+  changeTel:function(e){
+    this.setData({
+      tel: e.detail.value
+    })
+  },
+  changeCash:function(e){
+    this.setData({
+      cashAmount: parseInt(e.detail.value)
+    })
+  },
+  goToAddCard:function(){
+    wx.navigateTo({
+      url: '../addBank/addBank'
+    })
+    this.hideModal();
   }
 })

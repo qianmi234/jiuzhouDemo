@@ -1,6 +1,7 @@
 {
-  "pages": [
+  "pages": [ 
     "pages/index/index",
+    "pages/addBank/addBank",
     "pages/login/login",
     "pages/businesses/businesses",
     "pages/totalIncopme/totalIncopme",
@@ -10,7 +11,7 @@
     "pages/modifyPsd/modifyPsd",
     "pages/forget/forget",
     "pages/newpsd/newpsd",
-    "pages/addBank/addBank",
+   
     "pages/withdrawals/withdrawals",
     "pages/withdrawalsList/withdrawalsList",
     "pages/income/income",

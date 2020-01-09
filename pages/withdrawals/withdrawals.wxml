@@ -1,4 +1,6 @@
 <!--pages/withdrawals/withdrawals.wxml-->
+<wxs src="../../wxs/numberFormat.wxs" module="tools" />
+<wxs src="../../wxs/orderType.wxs" module="toolType" />
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
   <view class="shopContainer">
@@ -16,8 +18,8 @@
       <view class="listHead">
         <view class="firstText ">到账银行</view>
         <view class="lastText">
-          <image class="bankImg" src="{{zhaoshangIcon}}"></image>
-        招商银行(5468)
+          <image wx:if='{{toolType.bankType(bankCode)}}' class="bankImg" src="{{toolType.bankType(bankCode)}}"></image>
+          {{bankName}}({{account}})
         </view>
         <view bindtap="clickme" class='arrow'></view>
       </view>
@@ -27,18 +29,18 @@
       </view>
       <view class="listContent">
         <view class="firstListText">提现金额</view>
-        <input class="prcieInput" type="number" value="45,000,00.00" placeholder="请输入提现金额" />
+        <input bindinput="changeCash" class="prcieInput" type="number" value="{{cashAmount}}" placeholder="请输入提现金额" />
         <view class="lastListButton ">全部</view>
       </view>
       <view class="listContent">
         <view class="firstListText">手机号码</view>
-        <input class="prcieInput" type="number" placeholder="请输入您的手机号码" />
+        <input bindinput="changeTel" class="prcieInput" type="number" placeholder="请输入您的手机号码" value="{{tel}}" />
       </view>
       <view class="listTips">
         * 为了提现安全，请认真填写您的手机号码
       </view>
       <view class="buttonContent">
-        <view class="exportButton">确认提现</view>
+        <view bindtap="submitExtract" class="exportButton">确认提现</view>
       </view>
       <view class="listTips">
         * 温馨提示
@@ -53,41 +55,23 @@
       <view class="headTitle">选择银行卡</view>
       <view bindtap="hideModal" class="headCancle">取消</view>
     </view>
-    <view class="crdList">
-      <view class="cardListLeft">
-        <image class="cardImage" src="{{zhaoshangIcon}}"></image>
-        中国工商银行(2403)
-      </view>
-      <view>
-        <image class="onImage displayNone" src="{{checkIcon}}"></image>
-      </view>
-    </view>
-    <view class="crdList">
-      <view class="cardListLeft">
-        <image class="cardImage" src="{{zhaoshangIcon}}"></image>
-        中国工商银行(2403)
-      </view>
-      <view>
-        <image class="onImage" src="{{checkIcon}}"></image>
-      </view>
-    </view>
-    <view class="crdList">
-      <view class="cardListLeft">
-        <image class="cardImage" src="{{zhaoshangIcon}}"></image>
-        中国工商银行(2403)
-      </view>
-      <view>
-        <image class="onImage displayNone" src="{{checkIcon}}"></image>
-      </view>
-    </view>
-    <navigator url="../addBank/addBank" hover-class="other-navigator-hover"> 
-      <view class="addCard">
+    <block wx:for="{{bankList}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items">
+        <view bindtap="changeBank" class="crdList" data-id="{{items.bankCode}}" data-name="{{items.bankName}}" data-account="{{items.agentBankAccount}}" data-accountName="{{items.agentBankName}}">
+          <view class="cardListLeft" >
+            <image wx:if='{{toolType.bankType(items.bankCode)}}' class="cardImage" src="{{toolType.bankType(items.bankCode)}}"></image>
+            {{items.bankName}}
+          </view>
+          <view wx:if="{{items.bankCode == bankCode}}">
+            <image class="onImage" src="{{checkIcon}}"></image>
+          </view>
+        </view>
+      </block>
+      <view bindtap="goToAddCard" class="addCard">
         <view class="cardLeft">
           <image src="{{addCardIcon}}"></image>
           添加银行卡
         </view>
         <view class="arrowRight"></view>
       </view>
-    </navigator>
   </view>
 </view>
