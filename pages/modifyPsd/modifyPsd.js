@@ -13,6 +13,9 @@ Page({
       address: '' // 加个背景 不加就是没有
     },
     height: app.globalData.height * 2 + 30,
+    curPsd:'',
+    newPsd:'',
+    againPsd:''
   },
 
   /**
@@ -71,8 +74,56 @@ Page({
 
   },
   modifySubmit:function(){
+    var _this = this;
+    if (_this.data.curPsd == "") {
+      wx.showToast({
+        title: '请输入当前密码',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    if (_this.data.newPsd == "") {
+      wx.showToast({
+        title: '请输入新密码',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    if (_this.data.againPsd == "") {
+      wx.showToast({
+        title: '请再次输入新密码',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    if (_this.data.newPsd != _this.data.againPsd){
+      wx.showToast({
+        title: '两次输入的新密码不一致',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
     wx.navigateTo({
       url: '../login/login'
+    })
+  },
+  changeCurPsd:function(e){
+    this.setData({
+      curPsd: e.detail.value
+    })
+  },
+  changeNewPsd:function(e){
+    this.setData({
+      newPsd: e.detail.value
+    })
+  },
+  changeAgainPsd:function(e){
+    this.setData({
+      againPsd: e.detail.value
     })
   }
 })

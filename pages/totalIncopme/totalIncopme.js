@@ -1,5 +1,6 @@
 // pages/totalIncopme/totalIncopme.js
 const app = getApp()
+const cfg = require("../../utils/config.js");
 Page({
 
   /**
@@ -16,6 +17,7 @@ Page({
     leijiIcon: '../../images/jinbi_icon@3x.png',
     dateStart: '2020-01-01',
     dateEnd: '2020-12-31',
+    totalList:''
   },
 
   /**
@@ -36,7 +38,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getTotalList();
   },
 
   /**
@@ -85,4 +87,41 @@ Page({
       dateEnd: e.detail.value
     })
   },
+  getTotalList: function () {
+    var _this = this;
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/cash/findProfitlist', //仅为示例，并非真实的接口地址
+      data: {
+        "agentId": 'f987a51c6b6a49549c0502ef631d4abd',
+        "startDate": this.data.dateStart,
+        "endDate": this.data.dateEnd,
+        "operType": '1'
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          _this.setData({
+            totalList: res.data.data,
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
+  },
+  searchTotal: function () {
+    this.getTotalList();
+  }
 })

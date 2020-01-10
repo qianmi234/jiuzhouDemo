@@ -25,12 +25,12 @@
       </view>
       <view class="listContent">
         <text class="firstListText">总资产</text>
-        <text class="lastListText">10,100,100,000,00</text>
+        <text class="lastListText">{{totalAssets}}</text>
       </view>
       <view class="listContent">
         <view class="firstListText">提现金额</view>
         <input bindinput="changeCash" class="prcieInput" type="number" value="{{cashAmount}}" placeholder="请输入提现金额" />
-        <view class="lastListButton ">全部</view>
+        <view bindtap="allExtract" class="lastListButton ">全部</view>
       </view>
       <view class="listContent">
         <view class="firstListText">手机号码</view>

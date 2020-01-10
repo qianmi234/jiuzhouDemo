@@ -25,13 +25,17 @@ Page({
     bankAccount:'',
     tel:'',
     accountName:'',
-    cashAmount:'0'
+    cashAmount:'0',
+    totalAssets:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      totalAssets: options.totalAssets
+    })
   },
 
   /**
@@ -245,5 +249,15 @@ Page({
       url: '../addBank/addBank'
     })
     this.hideModal();
+  },
+  allExtract:function(){
+    if (this.data.totalAssets.indexOf(",") >= 0){
+      var total = this.data.totalAssets.split(",").join("");
+    }else{
+      var total = this.data.totalAssets
+    }
+    this.setData({
+      cashAmount: total
+    })
   }
 })

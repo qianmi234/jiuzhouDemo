@@ -187,3 +187,9 @@
   color: #f6be41;
   font-size: 30rpx;
 }
+.noData{
+  height: 400rpx;
+  line-height: 400rpx;
+  text-align: center;
+  color: #999;
+}

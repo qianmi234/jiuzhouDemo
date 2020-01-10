@@ -5,17 +5,17 @@
     <view class="shopNull" style="height:{{height}}px;"></view>
     <view class="loginList">
       <view class="loginTel">
-        <input class="loginInput" placeholder-class="phcolor" type="number" placeholder="请输入当前密码" />
+        <input bindinput="changeCurPsd" class="loginInput" placeholder-class="phcolor" password type="text" placeholder="请输入当前密码" value="{{curPsd}}" />
       </view>
     </view>
     <view class="loginList">
       <view class="loginTel">
-        <input class="loginInput" placeholder-class="phcolor" type="number" placeholder="请输入新密码" />
+        <input bindinput="changeNewPsd" class="loginInput" placeholder-class="phcolor" password type="text" placeholder="请输入新密码" value="{{newPsd}}"/>
       </view>
     </view>
     <view class="loginList">
       <view class="loginTel">
-        <input class="loginInput" placeholder-class="phcolor" type="number" placeholder="再次输入新密码" />
+        <input bindinput="changeAgainPsd" class="loginInput" placeholder-class="phcolor" password type="text" placeholder="再次输入新密码" value="{{againPsd}}"/>
       </view>
     </view>
     <view class="loginList">

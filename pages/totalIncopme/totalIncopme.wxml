@@ -1,4 +1,5 @@
 <!--pages/totalIncopme/totalIncopme.wxml-->
+<wxs src="../../wxs/numberFormat.wxs" module="tools" />
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
   <view class="shopContainer">
@@ -7,7 +8,7 @@
       <view class="dateSelect">
           <text>选择日期</text>
           <view class="dateStart">
-            <picker mode="date" value="{{dateStart}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindStartChange">
+            <picker mode="date" value="{{dateStart}}" start="{{}}" end="{{}}" bindchange="bindStartChange">
               <view class="picker">
                 {{dateStart}}
               </view>
@@ -15,48 +16,36 @@
           </view>
           <text>-</text>
           <view class="dateEnd">
-            <picker mode="date" value="{{dateEnd}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindEndChange">
+            <picker mode="date" value="{{dateEnd}}" start="{{}}" end="{{}}" bindchange="bindEndChange">
               <view class="picker">
                 {{dateEnd}}
               </view>
             </picker>
           </view>
-          <text class="dateSearch">查询</text>
+          <text bindtap="searchTotal" class="dateSearch">查询</text>
         </view>
     </view>
     <view class="height20"></view>
-    <view class="shopList">
-      <view class="listHead">
-        <view class="listHeadLeft">
-          <view class="lastText">
-          <image class="bankImg" src="{{leijiIcon}}"></image>
-          季结分润
-          </view>
-          <view class="listPrice">2019/12/02 16:00:00</view>
-        </view>
-        <view class="listHeadRight">
-          <view class="listDate">
-            +30843.00
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class="shopList">
-      <view class="listHead">
-        <view class="listHeadLeft">
-          <view class="lastText">
+    <view wx:if="{{totalList.length == 0}}" class="noData">暂无数据</view>
+    <block wx:if="{{totalList.length >= 0}}" wx:for="{{totalList}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items">
+      <view class="shopList">
+        <view class="listHead">
+          <view class="listHeadLeft">
+            <view class="lastText">
             <image class="bankImg" src="{{leijiIcon}}"></image>
-            <text>月结分润</text>
+              <text wx:if="{{items.paySubject == '0004'}}">月结分润</text>
+              <text wx:if="{{items.paySubject == '0005'}}">季结分润</text>
+            </view>
+            <view class="listPrice">{{items.payTime}}</view>
           </view>
-          <view class="listPrice">2019/12/02 16:00:00</view>
-        </view>
-        <view class="listHeadRight">
-          <view class="listDate">
-            +3600.00  
+          <view class="listHeadRight">
+            <view class="listDate">
+              +{{tools.threeNum(items.tradeMoney) || tools.threeNum(0)}}
+            </view>
           </view>
         </view>
       </view>
-    </view>
+    </block>
   </view>
 </view>
 

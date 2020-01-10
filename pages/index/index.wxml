@@ -13,7 +13,7 @@
   <view class="usermotto boxShadow">
     <view class="top_title">
       <view class="myAssets">我的资产</view>
-      <navigator url="../withdrawals/withdrawals" hover-class="other-navigator-hover">
+      <navigator url="../withdrawals/withdrawals?totalAssets={{tools.threeNum(dataJson.agentAccountBalance) || 0.00}}" hover-class="other-navigator-hover">
         <view class="extraction">
           提现
           <image class="wallet" src="{{tixianIcon}}"></image>
