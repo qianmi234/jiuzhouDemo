@@ -1,8 +1,9 @@
 {
   "pages": [ 
+    "pages/login/login",
     "pages/index/index",
     "pages/addBank/addBank",
-    "pages/login/login",
+    
     "pages/businesses/businesses",
     "pages/totalIncopme/totalIncopme",
     "pages/monthIncome/monthIncome",

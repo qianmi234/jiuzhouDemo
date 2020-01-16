@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js')
 const app = getApp()
 const cfg = require("../../utils/config.js");
+const utilMd5 = require('../../utils/MD5.js');
 Page({
   data: {
     nvabarData: {
@@ -14,15 +15,20 @@ Page({
     logIcon:'../../images/login_logo@2x.png',
     loginName:'',
     loginPsd:'',
-    codeIcon:''
+    loginCode:'',
+    codeIcon:'',
+    codeDate:''
   },
   onLoad: function () {
+    var date = new Date().getTime();
     this.setData({
       logs: (wx.getStorageSync('logs') || []).map(log => {
         return util.formatTime(new Date(log))
-      })
+      }),
+      codeDate: date,
+      codeIcon: cfg.requestURL + '/backend/agent/mobile/getVerifyCodeImage?key=' + date
     })
-    this.getVerifyCodeImage();
+    console.log(date, this.data.codeDate)
   },
   loginSubmit:function(){
     var _this = this;
@@ -42,18 +48,28 @@ Page({
       })
       return false;
     }
+    if (_this.data.loginCode == "") {
+      wx.showToast({
+        title: '请输入验证码',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
     wx.showLoading({
       title: '加载中...',
     })
     wx.request({
       url: cfg.requestURL +'/backend/agent/mobile/login', //仅为示例，并非真实的接口地址
-      data: {
-        "password": _this.data.loginPsd,
-        "username": _this.data.loginName
+      data: { 
+        "password": utilMd5.hexMD5(_this.data.loginPsd), 
+        "username": _this.data.loginName, 
+        "verifyCode": _this.data.loginCode,
+        "key": this.data.codeDate
       },
       method:'POST',
       header: {
-        'content-type': 'application/json' // 默认值
+        "Content-Type": "application/json"
       },
       success(res) {
         wx.hideLoading();
@@ -82,19 +98,32 @@ Page({
       loginPsd: e.detail.value
     })
   },
+  changeCode:function(e){
+    this.setData({
+      loginCode: e.detail.value
+    })
+  },
   forget:function(){
     wx.navigateTo({
       url: '../forget/forget'
     })
   },
-  getVerifyCodeImage:function(){
+  getCode:function(){
+    var date = new Date().getTime();
+    this.setData({
+      codeDate: date,
+      codeIcon: cfg.requestURL + "/backend/agent/mobile/getVerifyCodeImage?key=" + date
+    })
+    console.log(date, this.data.codeDate)
+  },
+  testCode:function(){
     var _this = this;
     wx.request({
-      url: cfg.requestURL + '/backend/agent/mobile/getVerifyCodeImage', //仅为示例，并非真实的接口地址
+      url: cfg.requestURL + '/testSessionId', //仅为示例，并非真实的接口地址
       data: {},
       method: 'GET',
       header: {
-        'content-type': 'application/json' // 默认值
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success(res) {
         console.log(res)

@@ -12,13 +12,13 @@
     </view>
     <view class="loginList">
       <view class="loginTel">
-        <input bindinput="changePsd" class="loginInput" placeholder-class="phcolor" type="number" placeholder="请输入密码" value="{{loginPsd}}"/>
+        <input bindinput="changePsd" class="loginInput" placeholder-class="phcolor" password type="text" placeholder="请输入密码" value="{{loginPsd}}"/>
       </view>
     </view> 
     <view class="loginList">
       <view class="loginContent">
-        <input class="codeInput" placeholder-class="phcolor" type="number" placeholder="请输入验证码" />
-        <image class="codeImage" src="{{logIcon}}"></image>
+        <input bindinput="changeCode" class="codeInput" placeholder-class="phcolor" type="number" placeholder="请输入验证码" value="{{loginCode}}" />
+        <image bindtap="getCode"  class="codeImage" src="{{codeIcon}}"></image>
       </view>
     </view> 
     <view class="loginList">
