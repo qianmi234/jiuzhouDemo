@@ -60,8 +60,45 @@ var bankType = function (type) {
 
   return result;
 }
+var bankName = function (type) {
+  console.log(type)
+  var result = "";
+  if (type == "中国人民银行") {
+    result = "/images/zgrmyh_icon@3x.png"
+  }
+  if (type == "国家金库") {
+    result = "/images/gjjk_icon@3x.png"
+  }
+  if (type == "中国工商银行") {
+    result = "/images/gongshang_icon@2x.png"
+  }
+  if (type == "中国农业银行") {
+    result = "/images/zgnyyh_icon@3x.png"
+  }
+  if (type == "中国银行") {
+    result = "/images/zhongguoyinghang_icon@3x.png"
+  }
+  if (type == "中国建设银行") {
+    result = "/images/zgjsyh_icon@3x.png"
+  }
+  if (type == "国家开发银行") {
+    result = "/images/gjkfyh_icon@3x.png"
+  }
+  if (type == "中国进出口银行") {
+    result = "/images/zgjckyh_icon@3x.png"
+  }
+  if (type == "中国农业发展银行") {
+    result = "/images/zgnyfzyh_icon@3x.png"
+  }
+  if (type == "交通银行") {
+    result = "/images/jtyh_icon@3x.png"
+  }
+
+  return result;
+}
 module.exports = {
   orderType: orderType,
   bankType: bankType,
-  orderName: orderName
+  orderName: orderName,
+  bankName: bankName
 }

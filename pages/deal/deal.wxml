@@ -58,7 +58,7 @@
           <text bindtap="dateSearch" class="dateSearch">查询</text>
         </view>
       </view>
-      <view wx:if="{{dealJson.vos.length == 0}}" class="noData">暂无数据</view>
+      <view wx:if="{{dealJson.vos.length == 0||dealJson == ''}}" class="noData">暂无数据</view>
       <view wx:if="{{dealJson.vos.length > 0}}" class="dateContent">
         <view class="dateHead">
           <text class="firstListText">交易时间</text>

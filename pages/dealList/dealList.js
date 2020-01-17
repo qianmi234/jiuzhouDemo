@@ -1,4 +1,4 @@
-// pages/totalIncopme/totalIncopme.js
+// pages/dealList/dealList.js
 const app = getApp()
 const cfg = require("../../utils/config.js");
 Page({
@@ -9,15 +9,14 @@ Page({
   data: {
     nvabarData: {
       showCapsule: 1, //是否显示左上角图标  1表示显示  0表示不显示
-      title: '累计收益', //导航栏 中间的标题
+      title: '交易明细', //导航栏 中间的标题
       white: true, // 是就显示白的，不是就显示黑的。
       address: '' // 加个背景 不加就是没有
     },
     height: app.globalData.height * 2 + 30,
-    leijiIcon: '../../images/jinbi_icon@3x.png',
-    dateStart: '2020-01-01',
-    dateEnd: '2020-12-31',
-    totalList:''
+    searchIcon: '../../images/search_icon.png',
+    shopName: '',
+    dataJson: ''
   },
 
   /**
@@ -38,7 +37,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getTotalList();
+    this.getDataList();
   },
 
   /**
@@ -75,33 +74,18 @@ Page({
   onShareAppMessage: function () {
 
   },
-  bindStartChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      dateStart: e.detail.value
-    })
-  },
-  bindEndChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      dateEnd: e.detail.value
-    })
-  },
-  getTotalList: function () {
-    var _this = this;
+  getDataList: function () {
     wx.showLoading({
       title: '加载中...',
     })
+    var _this = this;
     wx.request({
-      url: cfg.requestURL + '/backend/agent/mobile/cash/findProfitlist', //仅为示例，并非真实的接口地址
+      url: cfg.requestURL + '/backend/agent/mobile/seller/sellerAmountWithAgentId?token=' + wx.getStorageSync('token'), //仅为示例，并非真实的接口地址
+      method: 'POST',
       data: {
         "agentId": wx.getStorageSync('agentId'),
-        "token": wx.getStorageSync('token'),
-        "startDate": this.data.dateStart,
-        "endDate": this.data.dateEnd,
-        "operType": '1'
+        "sellerName": this.data.shopName
       },
-      method: 'GET',
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -109,7 +93,7 @@ Page({
         wx.hideLoading();
         if (res.data.flag) {
           _this.setData({
-            totalList: res.data.data,
+            dataJson: res.data.data
           })
         } else {
           wx.showToast({
@@ -122,7 +106,12 @@ Page({
       }
     })
   },
-  searchTotal: function () {
-    this.getTotalList();
+  searchData: function () {
+    this.getDataList();
+  },
+  changeShopName: function (e) {
+    this.setData({
+      shopName: e.detail.value
+    })
   }
 })

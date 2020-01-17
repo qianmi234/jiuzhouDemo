@@ -19,7 +19,8 @@
         <view class="firstText ">到账银行</view>
         <view class="lastText">
           <image wx:if='{{toolType.bankType(bankCode)}}' class="bankImg" src="{{toolType.bankType(bankCode)}}"></image>
-          {{bankName}}({{account}})
+          <text wx:if="{{!bankName}}">请添加银行卡</text>
+          <text wx:if="{{bankName}}">{{bankName}}({{account}})</text>
         </view>
         <view bindtap="clickme" class='arrow'></view>
       </view>

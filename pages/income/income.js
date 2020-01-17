@@ -48,7 +48,8 @@ Page({
       url: cfg.requestURL + '/backend/agent/mobile/cash/agentCommionInfo', //仅为示例，并非真实的接口地址
       method: 'GET',
       data: {
-        agentId: wx.getStorageSync('agentId')
+        "agentId": wx.getStorageSync('agentId'),
+        "token": wx.getStorageSync('token'),
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -57,7 +58,7 @@ Page({
         wx.hideLoading();
         if (res.data.flag) {
           _this.setData({
-            dataJson: res.data.data
+            incomeJson: res.data.data
           })
         } else {
           wx.showToast({

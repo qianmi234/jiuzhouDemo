@@ -6,7 +6,7 @@ const utilMd5 = require('../../utils/MD5.js');
 Page({
   data: {
     nvabarData: {
-      showCapsule: 1, //是否显示左上角图标  1表示显示  0表示不显示
+      showCapsule: 0, //是否显示左上角图标  1表示显示  0表示不显示
       title: '登录', //导航栏 中间的标题
       white: true, // 是就显示白的，不是就显示黑的。
       address: '' // 加个背景 不加就是没有
@@ -74,7 +74,9 @@ Page({
       success(res) {
         wx.hideLoading();
         if (res.data.flag){
-          wx.setStorageSync("agentId", res.data.data.agentId)
+          wx.setStorageSync("agentId", res.data.data.agentId);
+          wx.setStorageSync("token", res.data.data.token);
+          wx.setStorageSync("userId", res.data.data.userId);
           wx.navigateTo({
             url: '../index/index'
           })

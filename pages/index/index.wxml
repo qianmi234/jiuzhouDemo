@@ -27,11 +27,11 @@
     <view class="statistics">
       <view class="left">
         <view class="leftTitile">本月收入</view>
-        <view class="leftNum">+{{tools.threeNum(dataJson.incomeMoneyWithMonth) || 0.00}}</view>
+        <view class="leftNum">{{tools.threeNum(dataJson.incomeMoneyWithMonth) || 0.00}}</view>
       </view>
       <view class="right">
         <view class="leftTitile">本月支出</view>
-        <view class="rightNum">-{{tools.threeNum(dataJson.payMoneyWithMonth) || 0.00}}</view>
+        <view class="rightNum">{{tools.threeNum(dataJson.payMoneyWithMonth) || 0.00}}</view>
       </view>
     </view>
   </view>
@@ -45,7 +45,7 @@
         </view>
        </navigator>
     </view>
-    <navigator url="../deal/deal" hover-class="other-navigator-hover">
+    <navigator url="../dealList/dealList" hover-class="other-navigator-hover">
       <view class="listContent">
         <image class="listIcon" src="{{jiaoyiIcon}}"></image>
         <view class="listTitle">

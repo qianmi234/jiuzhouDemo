@@ -1,5 +1,7 @@
 // pages/modifyPsd/modifyPsd.js
 const app = getApp()
+const cfg = require("../../utils/config.js");
+const utilMd5 = require('../../utils/MD5.js');
 Page({
 
   /**
@@ -107,6 +109,32 @@ Page({
       })
       return false;
     }
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/updatePassword?token=' + wx.getStorageSync('token'), //仅为示例，并非真实的接口地址
+      data: {
+        "userId": wx.getStorageSync('userId'),
+        "newpassword": utilMd5.hexMD5(_this.data.newPsd),
+        "oldpassword": utilMd5.hexMD5(_this.data.curPsd),
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/json"
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          wx.navigateTo({
+            url: '../index/index'
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
     wx.navigateTo({
       url: '../login/login'
     })

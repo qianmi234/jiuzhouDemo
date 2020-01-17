@@ -92,6 +92,8 @@ Page({
       url: cfg.requestURL + '/backend/agent/mobile/seller/sellerDetail', //仅为示例，并非真实的接口地址
       method: 'GET',
       data: {
+        "agentId": wx.getStorageSync('agentId'),
+        "token": wx.getStorageSync('token'),
         "sellerId": this.data.sellerId
       },
       header: {

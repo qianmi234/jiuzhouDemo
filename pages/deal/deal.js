@@ -20,7 +20,8 @@ Page({
     dateStart: '2020-01-01',
     dateEnd: '2020-12-31',
     monthStart:'2020-01',
-    dealJson:""
+    dealJson:"",
+    sellerId:''
   },
 
   /**
@@ -29,6 +30,9 @@ Page({
   onLoad: function (options) {
     wx.showLoading({
       title: '加载中...',
+    })
+    this.setData({
+      sellerId: options.sellerId
     })
     this.getDealList();
   },
@@ -84,8 +88,8 @@ Page({
   getDealList:function(){
     var _this = this;
     var primas = {
-      "agentId": "f987a51c6b6a49549c0502ef631d4abd",
-      "sellerId": "31238"
+      "agentId": wx.getStorageSync('agentId'),
+      "sellerId": this.data.sellerId
     };
     if (this.data.tabIndex == 1){
       primas.endDate = _this.data.dateEnd;
@@ -94,7 +98,7 @@ Page({
       primas.month = _this.data.monthStart;
     }
     wx.request({
-      url: cfg.requestURL + '/backend/agent/mobile/seller/sellerProviderDay', //仅为示例，并非真实的接口地址
+      url: cfg.requestURL + '/backend/agent/mobile/seller/sellerProviderDay?token=' + wx.getStorageSync('token'), //仅为示例，并非真实的接口地址
       method: 'POST',
       data: primas,
       header: {

@@ -15,6 +15,7 @@ Page({
     },
     height: app.globalData.height * 2+30,
     searchIcon:'../../images/search_icon.png',
+    shopName:'',
     dataJson:''
   },
 
@@ -96,8 +97,9 @@ Page({
       url: cfg.requestURL + '/backend/agent/mobile/seller/sellerlistWithAgentId', //仅为示例，并非真实的接口地址
       method: 'GET',
       data: {
-        "agentId": 'f987a51c6b6a49549c0502ef631d4abd',//wx.getStorageSync('agentId')
-        "agentName":'上海瑞玑'
+        "agentId": wx.getStorageSync('agentId'),
+        "token": wx.getStorageSync('token'),
+        "agentName":this.data.shopName
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -121,5 +123,10 @@ Page({
   },
   searchData:function(){
     this.getDataList();
+  },
+  changeShopName:function(e){
+    this.setData({
+      shopName: e.detail.value
+    })
   }
 })

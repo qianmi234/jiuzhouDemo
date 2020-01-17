@@ -3,11 +3,7 @@
   var telChange=function(tel){
     var result = '';
     tel = tel.toString();
-    while (tel.length > 4) {
-      result = ' ' + tel.slice(-4) + result;
-      tel = tel.slice(0, tel.length - 4);
-    }
-    return result
+    return tel.slice(-4)
   }
   module.exports.telSlice = telChange; 
 </wxs>
@@ -44,7 +40,7 @@
       <view class="listHead">
         <view class="listHeadLeft">
           <view class="lastText">
-          <image wx:if='{{toolType.bankType(items.orderCode)}}' class="bankImg" src="{{toolType.bankType(items.orderCode)}}"></image>
+          <image wx:if='{{toolType.bankName(items.bankName)}}' class="bankImg" src="{{toolType.bankName(items.bankName)}}"></image>
         {{items.bankName}}({{telSlice.telSlice(items.bankAccount
         )}})*{{items.accountName}}
           </view>

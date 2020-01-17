@@ -1,0 +1,34 @@
+<!--pages/dealList/dealList.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view class="shopNum">
+      <text class="title">商户数量</text>
+      <text class="number">{{dataJson.length}}</text>
+    </view>
+    <view class="shopSearch">
+      <view class="searchContent">
+        <input bindinput="changeShopName" class="weui-input" placeholder="请输入商户名称" value="{{shopName}}"/>
+        <view bindtap="searchData" class="searchIcon">
+          <image src="{{searchIcon}}"></image>  
+        </view> 
+      </view>
+    </view>
+    <view wx:if="{{dataJson.length == 0}}" class="noData">暂无数据</view>
+    <view wx:if="{{dataJson}}" wx:for="{{dataJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items">
+        <navigator url="../deal/deal?sellerId={{items.sellerId}}" hover-class="other-navigator-hover" >
+          <view class="shopList">
+            <view class="listContent">
+              <text class="firstListText">{{items.sellerName}}</text>
+              <view class="lastListText ">
+                <view class="price">{{items.realAmount}}</view>
+                <view class="total">累计交易额</view>
+              </view>
+              <view class='arrow'></view>
+            </view> 
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

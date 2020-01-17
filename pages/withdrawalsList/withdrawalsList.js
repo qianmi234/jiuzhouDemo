@@ -96,7 +96,8 @@ Page({
     wx.request({
       url: cfg.requestURL + '/backend/agent/mobile/cash/withdrawallist', //仅为示例，并非真实的接口地址
       data: {
-        "agentId": 'f987a51c6b6a49549c0502ef631d4abd',//wx.getStorageSync('agentId'),
+        "agentId": wx.getStorageSync('agentId'),
+        "token": wx.getStorageSync('token'),
         "startDate": this.data.dateStart,
         "endDate": this.data.dateEnd
       },

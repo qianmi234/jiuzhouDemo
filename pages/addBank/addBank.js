@@ -150,7 +150,10 @@ Page({
     var _this = this;
     wx.request({
       url: cfg.requestURL + '/backend/agent/mobile/cash/bankcodelist', //仅为示例，并非真实的接口地址
-      data: {},
+      data: {
+        "agentId": wx.getStorageSync('agentId'),
+        "token": wx.getStorageSync('token'),
+      },
       method: 'GET',
       header: {
         'content-type': 'application/json' // 默认值
@@ -213,9 +216,9 @@ Page({
       return false;
     }
     wx.request({
-      url: cfg.requestURL + '/backend/agent/mobile/cash/insertAccountBank', //仅为示例，并非真实的接口地址
+      url: cfg.requestURL + '/backend/agent/mobile/cash/insertAccountBank?token=' + wx.getStorageSync('token'), //仅为示例，并非真实的接口地址
       data: {
-        "agentId": 'f987a51c6b6a49549c0502ef631d4abd',//wx.getStorageSync('agentId'),
+        "agentId": wx.getStorageSync('agentId'),
         "agentBankAccount": _this.data.agentBankAccount,
         "agentBankName": _this.data.agentBankName,
         "bankCode": _this.data.bankCode,

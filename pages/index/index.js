@@ -11,7 +11,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     // 导航头组件所需的参数
     nvabarData: {
-      showCapsule: 1, //是否显示左上角图标  1表示显示  0表示不显示
+      showCapsule: 0, //是否显示左上角图标  1表示显示  0表示不显示
       title: '首页', //导航栏 中间的标题
       white: true, // 是就显示白的，不是就显示黑的。
       address: '../../images/home.png' // 加个背景 不加就是没有
@@ -83,7 +83,8 @@ Page({
       url: cfg.requestURL + '/backend/agent/mobile/home', //仅为示例，并非真实的接口地址
       method: 'GET',
       data: {
-        agentId: "f987a51c6b6a49549c0502ef631d4abd"
+        agentId: wx.getStorageSync('agentId'),
+        token: wx.getStorageSync('token')
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -95,6 +96,12 @@ Page({
             dataJson: res.data.data
           })
         } else {
+          if (res.data.msg == "token错误"){
+            wx.navigateTo({
+              url: '../login/login'
+            })
+            return false;
+          }
           wx.showToast({
             title: res.data.msg,
             icon: 'none',

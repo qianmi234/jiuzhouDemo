@@ -138,7 +138,8 @@ Page({
     wx.request({
       url: cfg.requestURL + '/backend/agent/mobile/cash/accountBankList', //仅为示例，并非真实的接口地址
       data: {
-        "agentId":'f987a51c6b6a49549c0502ef631d4abd'
+        "agentId": wx.getStorageSync('agentId'),
+        "token": wx.getStorageSync('token'),
       },
       method: 'GET',
       header: {
@@ -146,7 +147,7 @@ Page({
       },
       success(res) {
         wx.hideLoading();
-        if (res.data.flag) {
+        if (res.data.flag && res.data.data.length>0) {
           _this.setData({
             bankList: res.data.data,
             bankCode: res.data.data[0].bankCode,
@@ -183,6 +184,14 @@ Page({
   },
   submitExtract:function(){
     var _this = this;
+    if (_this.data.bankCode == ""){
+      wx.showToast({
+        title: '请选择银行卡',
+        icon: 'none',
+        duration: 2000
+      })
+      return false
+    }
     if (_this.data.cashAmount == 0 || _this.data.cashAmount==""){
       wx.showToast({
         title: '请输入提现金额',
@@ -200,10 +209,10 @@ Page({
       return false
     }
     wx.request({
-      url: cfg.requestURL + '/backend/agent/mobile/cash/withdrawalApply', //仅为示例，并非真实的接口地址
+      url: cfg.requestURL + '/backend/agent/mobile/cash/withdrawalApply?token=' + wx.getStorageSync('token'), //仅为示例，并非真实的接口地址
       data: {
+        "agentId": wx.getStorageSync('agentId'),
         "accountName": this.data.accountName,
-        "agentId": "f987a51c6b6a49549c0502ef631d4abd",
         "bankAccount": this.data.bankAccount,
         "bankName": this.data.bankName,
         "cashAmount": this.data.cashAmount,

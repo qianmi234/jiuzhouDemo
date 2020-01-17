@@ -40,7 +40,7 @@
           </view>
           <view class="listHeadRight">
             <view class="listDate">
-              +{{tools.threeNum(items.tradeMoney) || tools.threeNum(0)}}
+              {{tools.threeNum(items.tradeMoney) || tools.threeNum(0)}}
             </view>
           </view>
         </view>
