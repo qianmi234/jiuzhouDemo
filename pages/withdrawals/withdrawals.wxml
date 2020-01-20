@@ -15,14 +15,14 @@
     
     <view class="height20"></view>
     <view class="shopList">
-      <view class="listHead">
+      <view bindtap="clickme" class="listHead">
         <view class="firstText ">到账银行</view>
         <view class="lastText">
           <image wx:if='{{toolType.bankType(bankCode)}}' class="bankImg" src="{{toolType.bankType(bankCode)}}"></image>
           <text wx:if="{{!bankName}}">请添加银行卡</text>
           <text wx:if="{{bankName}}">{{bankName}}({{account}})</text>
         </view>
-        <view bindtap="clickme" class='arrow'></view>
+        <view class='arrow'></view>
       </view>
       <view class="listContent">
         <text class="firstListText">总资产</text>
@@ -35,7 +35,7 @@
       </view>
       <view class="listContent">
         <view class="firstListText">手机号码</view>
-        <input bindinput="changeTel" class="prcieInput" type="number" placeholder="请输入您的手机号码" value="{{tel}}" />
+        <input bindinput="changeTel" class="prcieInput" type="number" placeholder="请输入您的手机号码" value="{{tel}}" maxlength="11"/>
       </view>
       <view class="listTips">
         * 为了提现安全，请认真填写您的手机号码

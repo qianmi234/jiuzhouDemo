@@ -9,6 +9,7 @@
       <view class="userinfo-nickname">{{dataJson.agentPerson}}</view>
       <view class="userinfo-company">{{dataJson.agentName}}</view>
     </block>
+     <view bindtap="quitLogin" class="userinfo-quit">退出登录</view>
   </view>
   <view class="usermotto boxShadow">
     <view class="top_title">

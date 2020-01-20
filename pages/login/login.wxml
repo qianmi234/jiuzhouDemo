@@ -7,7 +7,7 @@
     <view class="loginName">欢迎来到中和税银</view>
     <view class="loginList mTop35">
       <view class="loginTel">
-        <input bindinput="changeName" class="loginInput" placeholder-class="phcolor" type="number" placeholder="请输入手机号" value="{{loginName}}" />
+        <input bindinput="changeName" class="loginInput" placeholder-class="phcolor" type="text" placeholder="请输入手机号或用户名" value="{{loginName}}" />
       </view>
     </view>
     <view class="loginList">

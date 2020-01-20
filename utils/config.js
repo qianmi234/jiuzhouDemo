@@ -1,1 +1,1 @@
-exports.requestURL = "https://www.xydtax.cn:9002"//"https://jz.0313web.com";
+exports.requestURL = "https://jz.0313web.com"//"https://jz.0313web.com";

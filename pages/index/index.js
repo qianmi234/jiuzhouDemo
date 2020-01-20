@@ -124,5 +124,33 @@ Page({
     wx.navigateTo({
       url: '../modifyPsd/modifyPsd'
     })
+  },
+  quitLogin:function(){
+    var _this = this;
+    wx.request({
+      url: cfg.requestURL + '/backend/agent/mobile/logout?token=' + wx.getStorageSync('token'), //仅为示例，并非真实的接口地址
+      method: 'GET',
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        if (res.data.flag) {
+          wx.setStorageSync("agentId", "");
+          wx.setStorageSync("token", "");
+          wx.setStorageSync("userId", "");
+          wx.navigateTo({
+            url: '../login/login'
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
   }
 })

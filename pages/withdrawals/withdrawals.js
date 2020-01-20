@@ -208,6 +208,14 @@ Page({
       })
       return false
     }
+    if (!(/^1[345789]\d{9}$/.test(_this.data.tel))) {
+      wx.showToast({
+        title: '手机号码填写有误',
+        icon: 'none',
+        duration: 2000
+      })
+      return false
+    }
     wx.request({
       url: cfg.requestURL + '/backend/agent/mobile/cash/withdrawalApply?token=' + wx.getStorageSync('token'), //仅为示例，并非真实的接口地址
       data: {

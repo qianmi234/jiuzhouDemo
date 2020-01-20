@@ -5,12 +5,12 @@
   <view class="shopContainer">
     <view class="shopNull" style="height:{{height}}px;"></view>
     <view class="shopList">
-      <view class="listHead">
+      <view bindtap="showModal" class="listHead">
         <view class="firstText ">开户行</view>
         <view class="lastText">
           <input bindtap="changeBankName" class="weui-input" maxlength="20" value="{{bankName}}" placeholder="请输入银行名称" placeholder-class="place" disabled/>
         </view>
-        <view bindtap="showModal" class='arrow'></view>
+        <view class='arrow'></view>
       </view>
       <view class="listContent">
         <text class="firstListText">支行名称</text>

@@ -171,3 +171,13 @@
 .boxShadow{
  box-shadow: 0rpx 10rpx 10rpx 10rpx rgba(165,169,184,0.5);
 }
+.userinfo-quit{
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  color: #fff;
+  height: 100rpx;
+  width: 200rpx;
+  text-align: right;
+  line-height: 100rpx;
+}
