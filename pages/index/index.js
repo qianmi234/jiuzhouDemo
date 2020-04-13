@@ -23,12 +23,22 @@ Page({
     jiaoyiIcon: '../../images/mingxichaxun_icon.png',
     shouyiIcon: '../../images/shouyi_icon.png',
     xiugaiIcon: '../../images/set_icon.png',
+    qiyeIcon: '../../images/qiye.png',
+    gerenIcon: '../../images/geren.png',
+    fabuIcon: '../../images/fabuxiangmu-ico.png',
+    chengjieIcon: '../../images/chengjiexiangmu-ico.png',
+    fapiaoIcon: '../../images/dayinfapiao-ico.png',
+    chaknIcon: '../../images/chakangeren-ico.png',
+    chaknqiyeIcon: '../../images/chakanqiye-ico.png',
+    payIcon:'../../images/pay.png',
     dataJson:'',
     agentName:'',
     agentPerson:'',
+    loginName:'',
     agentAccountBalance:'',
     payMoneyWithMonth:'',
-    incomeMoneyWithMonth:''
+    incomeMoneyWithMonth:'',
+    authorityName: wx.getStorageSync('authorityName')
   },
   //事件处理函数
   bindViewTap: function() {
@@ -69,15 +79,65 @@ Page({
     
   },
   onShow:function(){
-    if (!wx.getStorageSync('agentId')) {
+    if (wx.getStorageSync('token') == "") {
       wx.navigateTo({
         url: '../login/login'
       })
       return false;
     }
+    this.setData({
+      authorityName: wx.getStorageSync('authorityName')
+    })
     wx.showLoading({
       title: '加载中...',
     })
+    this.getSellerId();
+    if (wx.getStorageSync('authorityName') == 'AGENT_USER'){
+      this.getIndex();
+    }else{
+      this.setData({
+        loginName: wx.getStorageSync('loginName')
+      })
+    }
+  },
+  getSellerId:function(){
+    var _this = this;
+    var Url = '';
+    if (wx.getStorageSync('authorityName') == 'SELLER_USER'){
+      Url = '/backend/seller/mobile/getSellerByloginId';
+    }
+    if ((wx.getStorageSync('authorityName') == 'PERSON_USER')){
+      Url = '/backend/person/mobile/getPersonByloginId'
+    }
+    wx.request({
+      url: cfg.requestURL + Url+ '?token=' +wx.getStorageSync('token') + '&loginId=' + wx.getStorageSync('userId'), //仅为示例，并非真实的接口地址
+      method: 'GET',
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        wx.hideLoading();
+        if (res.data.flag) {
+          if (wx.getStorageSync('authorityName') == 'SELLER_USER') {
+            wx.setStorageSync("sellerId", res.data.data.sellerId);
+            wx.setStorageSync("sellerCompanyName", res.data.data.sellerCompanyName);
+          }
+          if ((wx.getStorageSync('authorityName') == 'PERSON_USER')) {
+            wx.setStorageSync("personId", res.data.data.personId);
+          }
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+        }
+      }
+    })
+  },
+  getIndex:function(){
     var _this = this;
     wx.request({
       url: cfg.requestURL + '/backend/agent/mobile/home', //仅为示例，并非真实的接口地址
@@ -96,7 +156,7 @@ Page({
             dataJson: res.data.data
           })
         } else {
-          if (res.data.msg == "token错误"){
+          if (res.data.msg == "token错误") {
             wx.navigateTo({
               url: '../login/login'
             })
@@ -125,6 +185,46 @@ Page({
       url: '../modifyPsd/modifyPsd'
     })
   },
+  toEnterprise:function(){
+    wx.navigateTo({
+      url: '../enterpriseCertification/enterpriseCertification'
+    })
+  },
+  toIndividual:function () {
+    wx.navigateTo({
+      url: '../individualCertification/individualCertification'
+    })
+  },
+  toProject:function(){
+    wx.navigateTo({
+      url: '../postProject/postProject'
+    })
+  },
+  toInvoicing:function(){
+    wx.navigateTo({
+      url: '../invoicing/invoicing'
+    })
+  },
+  toItem:function(){
+    wx.navigateTo({
+      url: '../itemList/itemList'
+    })
+  },
+  toPerson:function(){
+    wx.navigateTo({
+      url: '../viewIndividualList/viewIndividualList'
+    })
+  },
+  toBusiness:function(){
+    wx.navigateTo({
+      url: '../viewBusiness/viewBusiness'
+    })
+  },
+  toPay:function(){
+    wx.navigateTo({
+      url: '../payDetail/payDetail'
+    })
+  },
   quitLogin:function(){
     var _this = this;
     wx.request({
@@ -139,10 +239,21 @@ Page({
           wx.setStorageSync("agentId", "");
           wx.setStorageSync("token", "");
           wx.setStorageSync("userId", "");
+          wx.setStorageSync("authorityName", "");
+          wx.setStorageSync("sellerId", "");
+          wx.setStorageSync("personId", "");
+          wx.setStorageSync("sellerCompanyName", "");
+          wx.setStorageSync("loginName", "");  
           wx.navigateTo({
             url: '../login/login'
           })
         } else {
+          if (res.data.msg == "token错误"){
+            wx.navigateTo({
+              url: '../login/login'
+            })
+            return false;
+          }
           wx.showToast({
             title: res.data.msg,
             icon: 'none',

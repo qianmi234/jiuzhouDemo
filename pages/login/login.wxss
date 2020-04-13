@@ -15,8 +15,8 @@
   z-index: 2;
 }
 .logIcon{
-  width: 100rpx;
-  height: 100rpx;
+  width: 400rpx;
+  height: 75rpx;
   margin: 30rpx 0 40rpx 50rpx;
 }
 .loginName{
@@ -95,5 +95,12 @@
   color: #999;
   position: absolute;
   right: 50rpx;
+  margin-top: 10rpx;
+}
+.registerUser{
+  font-size: 26rpx;
+  color: #999;
+  position: absolute;
+  right: 180rpx;
   margin-top: 10rpx;
 }

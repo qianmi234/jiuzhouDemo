@@ -12,7 +12,7 @@ Page({
       address: '' // 加个背景 不加就是没有
     },
     height: app.globalData.height * 2 + 30,
-    logIcon:'../../images/login_logo@2x.png',
+    logIcon:'../../images/logo1-6.png',
     loginName:'',
     loginPsd:'',
     loginCode:'',
@@ -77,10 +77,18 @@ Page({
           wx.setStorageSync("agentId", res.data.data.agentId);
           wx.setStorageSync("token", res.data.data.token);
           wx.setStorageSync("userId", res.data.data.userId);
+          wx.setStorageSync("authorityName", res.data.data.authorityName);
+          wx.setStorageSync("loginName", res.data.data.loginName);
           wx.navigateTo({
             url: '../index/index'
           })
         }else{
+          if (res.data.msg == '用户不存在'){
+            wx.navigateTo({
+              url: '../register/register'
+            })
+            return false;
+          }
           wx.showToast({
             title: res.data.msg,
             icon: 'none',
@@ -108,6 +116,11 @@ Page({
   forget:function(){
     wx.navigateTo({
       url: '../forget/forget'
+    })
+  },
+  register:function(){
+    wx.navigateTo({
+      url: '../register/register'
     })
   },
   getCode:function(){

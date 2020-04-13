@@ -1,0 +1,13 @@
+/* pages/payDetail/payDetail.wxss */
+.container{
+  justify-content: center;
+  background-color: #fff;
+}
+.cardImage{
+  height: 600rpx;
+}
+.payTitle{
+  text-align: center;
+  font-size: 40rpx;
+  color: #bdbdbd;
+}

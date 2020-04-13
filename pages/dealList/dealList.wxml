@@ -1,4 +1,5 @@
 <!--pages/dealList/dealList.wxml-->
+<wxs src="../../wxs/numberFormat.wxs" module="tools" />
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view class="container">
   <view class="shopContainer">
@@ -22,7 +23,7 @@
             <view class="listContent">
               <text class="firstListText">{{items.sellerName}}</text>
               <view class="lastListText ">
-                <view class="price">{{items.realAmount}}</view>
+                <view class="price">{{tools.threeNum(items.realAmount) || tools.threeNum(0)}}</view>
                 <view class="total">累计交易额</view>
               </view>
               <view class='arrow'></view>

@@ -24,6 +24,7 @@
     <view class="loginList">
       <view bindtap="loginSubmit" class="loginButton">登录</view>
     </view>
+    <view bindtap="register" class="registerUser">注册新用户</view>
     <view bindtap="forget" class="forgetPsd">忘记密码</view>
   </view>
 </view>

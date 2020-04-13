@@ -1,0 +1,35 @@
+<!--pages/viewIndividualList/viewIndividualList.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container person">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view wx:if="{{dataJson.length == 0}}" class="noData">暂无数据</view>
+    <view wx:if="{{dataJson}}" wx:for="{{dataJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items">
+          <view class="shopList">
+          <!-- <view class="listHead">
+            <text class="firstText ">S0001</text>
+            <text class="lastText">2019/12/12</text>
+          </view> -->
+          <view class="listContent">
+            <text class="firstListText">个人名称</text>
+          </view>
+          <view class="listContent">
+            <text class="firstListText">负责人:负责人</text>
+            <view class="greenBtn">
+              <image class="brand-bg-view" src="{{grteenIcon}}"></image>
+              <text class="greenText">通过</text>
+            </view>
+          </view>
+          <view class="listContent">
+            <text class="firstListText">联系电话:13000002233</text>
+            <view class="greenBtn">
+            <image class="brand-bg-view" src="{{redIcon}}"></image>
+            <text class="greenText">拒绝</text>
+            </view>
+          </view>
+
+        </view>
+    </view>
+  </view>
+</view>
+

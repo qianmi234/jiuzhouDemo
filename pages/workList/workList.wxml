@@ -1,0 +1,21 @@
+<!--pages/workList/workList.wxml-->
+<wxs src="../../wxs/numberFormat.wxs" module="tools" />
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="shopContainer">
+  <view class="shopNull" style="height:{{height}}px;"></view>
+  <view class="workContent">
+  <view wx:if="{{pointShow}}" class="point">{{point}}分</view>
+  <view wx:if="{{dataJson}}" wx:for="{{dataJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items">
+    <view class="workList">
+      {{items.one}}{{items.oneMark}}{{items.two}}{{items.twoMark}}{{items.three}} = 
+      （<input bindinput="enterWork" class="weui-input" type="number" placeholder="" data-id="{{index}}" data-one="{{items.one}}" data-two="{{items.two}}" data-three="{{items.three}}" data-oneMark="{{items.oneMark}}" data-twoMark="{{items.twoMark}}" />）<view wx:if="{{items.status==1}}" class="yesWork">✔</view><view wx:if="{{items.status==2}}"   class="noWork">✕</view>
+    </view>
+  </view>
+  </view>
+  <view class="submit">
+    <view bindtap="submit" class="submitButton">提交答案</view>
+  </view>
+  <view class="submit">
+    <view wx:if="{{pointChange}}" bindtap="submitChange" class="submitButtonChange">修改答案</view>
+  </view>
+</view>

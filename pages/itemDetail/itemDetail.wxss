@@ -1,0 +1,283 @@
+/* pages/itemDetail/itemDetail.wxss */
+.shopContainer{
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  min-height: 100%;
+  z-index: 2;
+}
+.shopNum{
+  height: 100rpx;
+  width: 100%;
+  background-color: #fff;
+  line-height: 100rpx;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.shopNum .title{
+  color: #999;
+  font-size: 30rpx;
+  margin-left:30rpx;
+}
+.shopNum .chance{
+  position: absolute;
+  right: 30rpx;
+  color: #ec674c;
+  font-size: 30rpx;
+  width: 160rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border: 1px solid #ec674c;
+  border-radius: 5px;
+  margin-top: -30rpx;
+}
+.height20{
+  height: 20rpx;
+  background-color: #f2f2f2;
+}
+.shopList{
+  margin-top: 10rpx;
+  width: 100%;
+  background-color: #fff;
+}
+.listHead{
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  color: #999;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.listHead .firstText{
+  margin-left:30rpx;
+  min-width: 120rpx;
+  text-align: right;
+}
+.listHead .lastText{
+  margin-left: 80rpx;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.listHead .lastText input{
+  width: 300rpx;
+  font-size: 30rpx;
+  color: #bdbdbd;
+}
+.listHead .bankImg{
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}
+.listContent{
+  line-height: 98rpx;
+  height: 98rpx;
+  text-align: left;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.listContent .firstListText{
+  position: absolute;
+  color: #999;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  text-align: right;
+  min-width: 120rpx;
+}
+.listContent .lastListText{
+  position: absolute;
+  left: 230rpx;
+  color: #333;
+  font-size: 30rpx;
+}
+.listContent .fontWeight{
+  color:#333;
+  font-weight: 700;
+}
+.listContent .prcieInput{
+  margin-left: 230rpx;
+  width: 400rpx;
+  font-size: 30rpx;
+  color: #BDBDBD;
+}
+.listContent .lastListButton{
+  position: absolute;
+  left: 230rpx;
+  width: 160rpx;
+  height: 56rpx;
+  line-height:56rpx;
+  text-align: center;
+  border: 1rpx solid #ec674c;
+  color: #ec674c;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+.listContent .imageUp{
+  width: 56rpx;
+  height: 56rpx;
+  background-position: 100% 100%;
+  position: absolute;
+  left: 410rpx;
+}
+.arrow{
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  position: absolute;
+  right: 35rpx;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+.buttonContent{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.exportButton{
+  width: 690rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  color: #fff;
+  background: -webkit-linear-gradient(left,#f17b64,#eb6146);
+  border-radius: 10rpx; 
+  font-size: 36rpx;
+  margin-bottom: 10rpx;
+}
+/*使屏幕变暗  */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #202020;
+  opacity: 0.8;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+/*对话框 */
+.commodity_attr_box {
+  min-height:200rpx;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+}
+.maskHead{
+  height: 88rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.maskHead .headTitle{
+  color: #333;
+  font-size: 34rpx;
+}
+.maskHead .headCancle{
+  position: absolute;
+  right: 30rpx;
+  color: #999;
+  font-size: 34rpx;
+}
+.crdList{
+  height: 98rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30rpx;
+}
+.crdList .cardListLeft{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 32rpx;
+  color: #111;
+}
+.crdList .cardImage{
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}
+.displayNone{
+  display: none;
+}
+.crdList .onImage{
+  margin-right: 30rpx;
+  width: 26rpx;
+  height: 20rpx;
+}
+.addCard{
+  height: 98rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.addCard .cardLeft{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #111;
+  font-size: 32rpx;
+}
+.addCard image{
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+}
+.arrowRight{
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  position: absolute;
+  right: 35rpx;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+.place{
+  color:#babdbd;
+  font-size: 30rpx;
+}
+.bankList{
+  max-height: 500rpx;
+  overflow-y: auto;
+}
+.border-none{
+  border: none !important;
+}
+.listContentText{
+  min-height: 98rpx;
+  text-align: left;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.listContentText .prcieText{
+  margin-left: 30rpx;
+  width: 650rpx;
+  font-size: 30rpx;
+  color: #BDBDBD;
+}

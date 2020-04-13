@@ -1,0 +1,34 @@
+<!--pages/itemDetail/itemDetail.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<wxs src="../../wxs/orderType.wxs" module="toolType" />
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view class="shopList">
+      <view class="listContent">
+        <text class="firstListText">项目名称</text>
+        <input bindinput="changeBankSubject" class="prcieInput" maxlength="30" value="{{bankList.projectName}}" placeholder="请输入项目名称" placeholder-class="place" disabled />
+      </view>
+      <view class="listContent">
+        <text class="firstListText">负责人</text>
+        <input bindinput="changeBankSubject" class="prcieInput" maxlength="30" value="{{bankList.sellerName || ''}}" placeholder="请输入项目负责人" placeholder-class="place" disabled/>
+      </view>
+      <view class="listContent">
+        <text class="firstListText">电话</text>
+        <input bindinput="changeBankSubject" class="prcieInput" maxlength="30" value="{{bankList.telephone}}" placeholder="请输入手机号" placeholder-class="place" disabled/>
+      </view>   
+      <view class="listContent border-none">
+        <view class="firstListText">项目需求</view> 
+      </view>
+      <view class="listContentText">
+        <textarea class="prcieText" bindblur="bindTextAreaBlur" auto-height placeholder="请填写项目需求" placeholder-style="color:#BDBDBD;" disabled value="{{bankList.projectRequirement}}"/>
+        <view>
+          <image src="{{bankList.filePath}}"></image>
+        </view> 
+      </view>
+      <view class="buttonContent">
+        <view bindtap="addBank" class="exportButton">承接项目</view>
+      </view>
+    </view>
+  </view>
+</view>

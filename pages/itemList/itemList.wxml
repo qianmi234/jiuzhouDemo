@@ -1,0 +1,32 @@
+<!--pages/itemList/itemList.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view wx:if="{{dataJson.length == 0}}" class="noData">暂无数据</view>
+    <view wx:if="{{dataJson}}" wx:for="{{dataJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items">
+        <navigator url="../itemDetail/itemDetail?projectId={{items.projectId}}&sellerCompanyName={{items.sellerCompanyName}}" hover-class="other-navigator-hover" >
+          <view class="shopList">
+          <!-- <view class="listHead">
+            <text class="firstText ">S0001</text>
+            <text class="lastText">2019/12/12</text>
+          </view> -->
+          <view class="listContent">
+            <text class="firstListText">{{items.projectName}}</text>
+          </view>
+          <view class="listContent">
+            <text class="firstListText">负责人:{{items.sellerName}}</text>
+            <text class="lastListText ">联系电话:{{items.telephone}}</text>
+          </view>
+          <view class="listContent">
+            <text class="firstListText">项目编号:{{items.projectId}}</text>
+            <text class="lastListText ">发布时间:{{items.createdTime}}</text>
+          </view>
+          <view class="listContent">
+            <text class="firstListText">公司名称:{{items.sellerCompanyName}}</text>
+          </view>    
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

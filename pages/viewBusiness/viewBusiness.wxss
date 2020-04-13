@@ -1,0 +1,138 @@
+/* pages/viewBusiness/viewBusiness.wxss */
+.shopContainer{
+  background-color: #f2f2f2;
+  width: 700rpx;
+  min-height: 100%;
+  padding-bottom: 30rpx;
+  z-index: 8;
+}
+.shopNum{
+  height: 98rpx;
+  width: 100%;
+  background-color: #fff;
+  line-height: 98rpx;
+  text-align: left;
+}
+.shopNum .title{
+  color: #999;
+  font-size: 30rpx;
+  margin-left:30rpx;
+}
+.shopNum .number{
+  position:absolute;
+  right: 30rpx;
+  color: #333;
+  font-size: 30rpx;
+}
+.shopSearch{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 148rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.searchContent{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10rpx;
+}
+.searchContent input{
+  width: 600rpx;
+  height: 86rpx;
+  border-radius: 10rpx;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-left: 20rpx;
+  -webkit-border-top-right-radius:0rpx;
+  -webkit-border-bottom-right-radius:0rpx;
+}
+.searchIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 88rpx;
+  height: 90rpx;
+  background: -webkit-linear-gradient(left,#EC6659,#EC775A); 
+  -webkit-border-top-right-radius:10rpx;
+  -webkit-border-bottom-right-radius:10rpx;
+}
+.searchIcon image{
+  width: 48rpx;
+  height: 48rpx;
+}
+.shopList{
+  margin-top: 10rpx;
+  width: 100%;
+  background-color: #fff;
+}
+.listHead{
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  color: #999;
+  font-size: 30rpx;
+}
+.listHead .firstText{
+  margin-left:30rpx;
+}
+.listHead .lastText{
+  position: absolute;
+  right: 30rpx;
+}
+.listContent{
+  line-height: 80rpx;
+  height: 80rpx;
+  text-align: left;
+}
+.listContent .firstListText{
+  position: absolute;
+  color: #333;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  text-align: right;
+  min-width: 120rpx;
+}
+.listContent .lastListText{
+  position: absolute;
+  right: 55rpx;
+  color: #999;
+  font-size: 30rpx;
+}
+.listContent .fontWeight{
+  color:#333;
+  font-weight: 700;
+}
+.noData{
+  color: #999;
+  min-height: 600rpx;
+  line-height: 600rpx;
+  text-align: center;
+}
+.brand-bg-view{
+  width: 147rpx;
+  height: 46rpx;
+  position: absolute;
+  right: 55rpx;
+  line-height: 46rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  background-position: 100% 100%;
+  background-size: cover;
+}
+.greenBtn{
+  position: absolute;
+  right: 0rpx;
+  font-size: 24rpx;
+  color:#fff;
+}
+.greenText{
+  position: relative;
+  right: 102rpx;
+  top: -16rpx;
+}

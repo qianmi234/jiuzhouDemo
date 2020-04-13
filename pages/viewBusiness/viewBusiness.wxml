@@ -1,0 +1,36 @@
+<!--pages/viewBusiness/viewBusiness.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view class="container person">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view wx:if="{{dataJson.length == 0}}" class="noData">暂无数据</view>
+    <view wx:if="{{dataJson}}" wx:for="{{dataJson}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items">
+          <view class="shopList">
+          <!-- <view class="listHead">
+            <text class="firstText ">S0001</text>
+            <text class="lastText">2019/12/12</text>
+          </view> -->
+          <view class="listContent">
+            <text class="firstListText">{{items.sellerCompanyName}}</text>
+          </view>
+          <view class="listContent">
+            <text class="firstListText">负责人:{{items.sellerCompanyName}}</text>
+            <view class="greenBtn">
+              <image class="brand-bg-view" src="{{grteenIcon}}"></image>
+              <text bindtap="toBy" data-id="{{items.sellerId}}" class="greenText">通过</text>
+            </view>
+          </view>
+          <view class="listContent">
+            <text class="firstListText">联系电话:{{items.sellerPhone}}</text>
+            <view class="greenBtn">
+            <image class="brand-bg-view" src="{{redIcon}}"></image>
+            <text bindtap="toRefuse" data-id="{{items.sellerId}}" class="greenText">拒绝</text>
+            </view>
+          </view>
+
+        </view>
+    </view>
+  </view>
+</view>
+
+

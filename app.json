@@ -1,9 +1,10 @@
 {
   "pages": [ 
     "pages/index/index",
+    "pages/workList/workList",
     "pages/dealList/dealList",
-   
     "pages/login/login",
+    "pages/register/register",
     "pages/addBank/addBank",
     "pages/businesses/businesses",
     "pages/totalIncopme/totalIncopme",
@@ -13,12 +14,20 @@
     "pages/modifyPsd/modifyPsd",
     "pages/forget/forget",
     "pages/newpsd/newpsd",
-   
+    "pages/enterpriseCertification/enterpriseCertification",
+    "pages/individualCertification/individualCertification",
+    "pages/invoicing/invoicing",
+    "pages/itemList/itemList",
+    "pages/itemDetail/itemDetail",
+    "pages/viewIndividualList/viewIndividualList",
+    "pages/viewBusiness/viewBusiness",
+    "pages/postProject/postProject",
     "pages/withdrawals/withdrawals",
     "pages/withdrawalsList/withdrawalsList",
     "pages/income/income",
     "pages/deal/deal",
-    "pages/businessesDetail/businessesDetail"
+    "pages/businessesDetail/businessesDetail",
+    "pages/payDetail/payDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

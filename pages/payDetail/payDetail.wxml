@@ -1,0 +1,11 @@
+<!--pages/payDetail/payDetail.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<wxs src="../../wxs/orderType.wxs" module="toolType" />
+<view class="container">
+  <view class="shopNull" style="height:{{height}}px;"></view>
+  <view>
+    <image class="cardImage" src="{{checkIcon}}"></image>
+    <view class="payTitle">支付宝扫码支付</view>
+  </view>
+</view>
+

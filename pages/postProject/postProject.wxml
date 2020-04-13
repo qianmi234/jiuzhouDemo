@@ -1,0 +1,45 @@
+<!--pages/postProject/postProject.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<wxs src="../../wxs/orderType.wxs" module="toolType" />
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <view class="shopList">
+      <view class="listContent">
+        <text class="firstListText">项目名称</text>
+        <input bindinput="changeBankSubject" class="prcieInput" maxlength="30" value="{{bankNameSubject}}" placeholder="请输入项目名称" placeholder-class="place" />
+      </view>
+      <view class="listContent">
+        <text class="firstListText">负责人</text>
+        <input bindinput="changeBankName" class="prcieInput" maxlength="30" value="{{bankName}}" placeholder="请输入项目负责人" placeholder-class="place" />
+      </view>
+      <view class="listContent">
+        <text class="firstListText">电话</text>
+        <input bindinput="changeBankCode" type="number" class="prcieInput" maxlength="30" value="{{agentBankAccount}}" placeholder="请输入手机号" placeholder-class="place" />
+      </view>   
+      <view class="listContent">
+        <view class="firstListText">项目需求</view> 
+        <textarea class="prcieInput" bindblur="changeAgentBankName" auto-height placeholder="请填写项目需求" placeholder-style="color:#BDBDBD;" value="{{agentBankName}}" />
+      </view>
+      <view class="listContent">
+        <view class="firstListText">上传文件</view>
+        <view class="lastListButton" bindtap="uploadUp">选择文件</view>
+        <image class="imageUp" src="{{tempFileUp[0]}}"></image>
+      </view>
+      
+      <!-- <view class="listContent">
+        <view class="firstListText">身份证正面</view>
+        <view class="lastListButton" bindtap="uploadUp">选择文件</view>
+        <image class="imageUp" src="{{tempFileUp[0]}}"></image>
+      </view>
+      <view class="listContent">
+        <view class="firstListText">身份证背面</view>
+        <view class="lastListButton" bindtap="uploadDown">选择文件</view>
+        <image class="imageUp" src="{{tempFileDown[0]}}"></image>
+      </view> -->
+      <view class="buttonContent">
+        <view bindtap="addBank" class="exportButton">发布项目</view>
+      </view>
+    </view>
+  </view>
+</view>

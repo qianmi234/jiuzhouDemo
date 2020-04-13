@@ -1,0 +1,80 @@
+/* pages/workList/workList.wxss */
+.shopContainer{
+  position: absolute;
+  background-color: #f2f2f2;
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 30rpx;
+  z-index: 8;
+}
+.workContent{
+  width: 100%;
+}
+.workList{
+  display: flex;
+  width: 50%;
+  float: left;
+  justify-content: center;
+  align-items: center;
+  height: 40rpx;
+  margin: 30rpx 0rpx;
+}
+.shopNull{
+  height: 98rpx;
+  width: 100%;
+  background-color: #fff;
+  line-height: 98rpx;
+  text-align: left;
+}
+.weui-input{
+  width: 80rpx;
+  height: 40rpx;
+  text-align: center;
+}
+.yesWork{
+  color: green;
+}
+.noWork{
+  color: red;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.submit{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.submitButton{
+  margin-top: 30rpx;
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background-color: red;
+  border-radius: 10rpx;
+}
+.submitButtonChange{
+  margin-top: 30rpx;
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background-color: green;
+  border-radius: 10rpx;
+}
+.point{
+  position: fixed;
+  right: 130rpx;
+  top: 200rpx;
+  font-size: 100rpx;
+  color: red;
+  transform:rotate(-30deg);
+  z-index: 1000；
+}

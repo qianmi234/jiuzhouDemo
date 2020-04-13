@@ -6,7 +6,7 @@
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <view class="userinfo-nickname">{{dataJson.agentPerson}}</view>
+      <view class="userinfo-nickname">{{dataJson.agentPerson || loginName}}</view>
       <view class="userinfo-company">{{dataJson.agentName}}</view>
     </block>
      <view bindtap="quitLogin" class="userinfo-quit">退出登录</view>
@@ -37,7 +37,7 @@
     </view>
   </view>
   <view class="userlist boxShadow">
-    <view class="listContent">
+    <view class="listContent" wx:if="{{authorityName == 'AGENT_USER'}}">
       <image class="listIcon" src="{{chaxunIcon}}"></image>
       <navigator url="../businesses/businesses" hover-class="other-navigator-hover">
         <view class="listTitle">
@@ -47,7 +47,7 @@
        </navigator>
     </view>
     <navigator url="../dealList/dealList" hover-class="other-navigator-hover">
-      <view class="listContent">
+      <view class="listContent" wx:if="{{authorityName == 'AGENT_USER'}}">
         <image class="listIcon" src="{{jiaoyiIcon}}"></image>
         <view class="listTitle">
           <text>交易明细</text>
@@ -56,7 +56,7 @@
       </view>
     </navigator>
     <navigator url="../income/income" hover-class="other-navigator-hover">
-      <view class="listContent">
+      <view class="listContent" wx:if="{{authorityName == 'AGENT_USER'}}">
         <image class="listIcon" src="{{shouyiIcon}}"></image>
         <view class="listTitle">
           <text>收益查询</text>
@@ -64,11 +64,73 @@
         </view>
       </view>
     </navigator>
+    <view class="listContent" wx:if="{{authorityName == 'SELLER_USER'}}">
+      <image class="listIcon" src="{{qiyeIcon}}"></image>
+      <view bindtap="toEnterprise" class="listTitle">
+        <text>企业认证</text>
+        <view class='arrow'></view>
+      </view>
+    </view>
+    <view class="listContent" wx:if="{{authorityName == 'PERSON_USER'}}">
+      <image class="listIcon" src="{{gerenIcon}}"></image>
+      <view bindtap="toIndividual" class="listTitle">
+        <text>个人认证</text>
+        <view class='arrow'></view>
+      </view>
+    </view>
+    <view class="listContent" wx:if="{{authorityName == 'SELLER_USER'}}">
+      <image class="listIcon" src="{{fabuIcon}}"></image>
+      <view bindtap="toProject" class="listTitle">
+        <text>发布项目</text>
+        <view class='arrow'></view>
+      </view>
+    </view>
+    <view class="listContent" wx:if="{{authorityName == 'PERSON_USER'}}">
+      <image class="listIcon" src="{{chengjieIcon}}"></image>
+      <view bindtap="toItem" class="listTitle">
+        <text>承接项目</text>
+        <view class='arrow'></view>
+      </view>
+    </view>
+    <view class="listContent" wx:if="{{authorityName != 'AGENT_USER'}}">
+      <image class="listIcon" src="{{fapiaoIcon}}"></image>
+      <view bindtap="toInvoicing" class="listTitle">
+        <text>开具发票</text>
+        <view class='arrow'></view>
+      </view>
+    </view>
+    <view class="listContent" wx:if="{{authorityName == 'AGENT_USER'}}">
+      <image class="listIcon" src="{{chaknqiyeIcon}}"></image>
+      <view bindtap="toBusiness" class="listTitle">
+        <text>查看企业</text>
+        <view class='arrow'></view>
+      </view>
+    </view>
+    <view class="listContent" wx:if="{{authorityName == 'AGENT_USER'}}">
+      <image class="listIcon" src="{{chaknIcon}}"></image>
+      <view bindtap="toPerson" class="listTitle">
+        <text>查看个人</text>
+        <view class='arrow'></view>
+      </view>
+    </view>
+    <view class="listContent" wx:if="{{authorityName == 'AGENT_USER'}}">
+      <image class="listIcon" src="{{payIcon}}"></image>
+      <view bindtap="toPay" class="listTitle">
+        <text>扫码支付</text>
+        <view class='arrow'></view>
+      </view>
+    </view>
     <view class="listContent">
       <image class="listIcon" src="{{xiugaiIcon}}"></image>
       <view bindtap="modifyPsd" class="lastTitle">
         <text>修改密码</text>
         <view class='arrow'></view>
+      </view>
+    </view>
+  </view>
+  <view class="userlist_">
+    <view class="">      
+      <view class="lastTitle_">
       </view>
     </view>
   </view>

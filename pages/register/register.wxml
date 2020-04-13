@@ -1,0 +1,75 @@
+<!--pages/register/register.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<wxs src="../../wxs/orderType.wxs" module="toolType" />
+<view class="container">
+  <view class="shopContainer">
+    <view class="shopNull" style="height:{{height}}px;"></view>
+    <image class="logIcon" src="{{logIcon}}"></image>
+    <view class="shopList">
+      <view class="regContent">
+        <view bindtap="showModal" class="listHead">
+          <view class="lastText">
+            <input bindtap="changeBankName" class="weui-input" maxlength="20" value="{{bankName}}" placeholder="请输入银行名称" placeholder-class="place" disabled/>
+          </view>
+          <view class='arrow'></view>
+        </view>
+      </view>
+      <view class="regContent" wx:if="{{bankCode == 1}}">
+        <view class="listContent" >
+          <input bindinput="changeName" class="prcieInput" maxlength="30" value="{{regName}}" placeholder="请输入公司名称" placeholder-class="place" />
+        </view>
+      </view>
+      <view wx:if="{{bankCode != 1}}" class="regContent">
+        <view class="listContent" >
+        <input bindinput="changePersonName" class="prcieInput" value="{{personName}}" placeholder="请输入用户名" placeholder-class="place"/>
+      </view>
+      </view>
+      <view class="regContent" wx:if="{{bankCode == 1}}">
+      <view class="listContent">
+        <input bindinput="changeTel" class="prcieInput" type="number" placeholder="请输入手机号" placeholder-class="place" value="{{regTel}}"/>
+      </view>
+      </view>
+      <view class="regContent">
+      <view class="listContent">
+        <input bindinput="changePsd" class="prcieInput" value="{{regPsd}}" placeholder="请输入密码" password placeholder-class="place"/>
+      </view>
+      </view>
+      <view class="buttonContent">
+        <view bindtap="addBank" class="exportButton">注册</view>
+      </view>
+    </view>
+  </view>
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view class="maskHead">
+      <view class="headTitle">选择注册类型</view>
+      <view bindtap="hideModal" class="headCancle">取消</view>
+    </view>
+    <view class="bankList">    
+      <view bindtap="changeBank" class="crdList" data-id="1" data-name="企业">
+        <view class="cardListLeft" >
+          企业
+        </view>
+        <view wx:if="{{bankCode == 1}}">
+          <image class="onImage" src="{{checkIcon}}"></image>
+        </view>
+      </view>
+      <view bindtap="changeBank" class="crdList" data-id="2" data-name="个人">
+        <view class="cardListLeft" >
+          个人
+        </view>
+        <view wx:if="{{bankCode == 2}}">
+          <image class="onImage" src="{{checkIcon}}"></image>
+        </view>
+      </view>
+      <view bindtap="changeBank" class="crdList" data-id="3" data-name="业务员">
+        <view class="cardListLeft" >
+          业务员
+        </view>
+        <view wx:if="{{bankCode == 3}}">
+          <image class="onImage" src="{{checkIcon}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
